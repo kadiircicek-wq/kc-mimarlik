@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-  <html lang="tr">
-  <head>
-  <meta charset="UTF-8">
-  <title>KC Mimarlik</title>
-  <style>
-  :root{--gold:#d4af37;--bg:#0b0b0b;}
-  *{box-sizing:border-box;margin:0;padding:0;font-family:Georgia, 'Times New Roman', serif;}
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>KC Mimarlık</title>
+<style>
+:root{--gold:#d4af37;--bg:#0b0b0b;}
+*{box-sizing:border-box;margin:0;padding:0;font-family:Georgia, 'Times New Roman', serif;}
 body{background:var(--bg);color:#fff;}
 header{display:flex;justify-content:space-between;align-items:center;padding:20px 60px;background:#000;}
 header .logo{font-size:22px;font-weight:bold;letter-spacing:1px;}
@@ -17,60 +17,99 @@ nav a.active{color:var(--gold);}
 .btn-primary{display:inline-block;background:var(--gold);color:#000;padding:14px 30px;text-decoration:none;font-weight:bold;}
 section{padding:80px 60px;}
 .section-label{color:var(--gold);letter-spacing:3px;font-size:13px;margin-bottom:10px;text-transform:uppercase;}
+.biz-kimiz p.lead{font-size:22px;font-weight:bold;max-width:800px;margin-bottom:20px;}
+.biz-kimiz p.desc{color:#ccc;max-width:800px;line-height:1.6;}
 .projects-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:40px;position:relative;}
 .projects-header h2{font-size:32px;}
-  .view-all-wrap{position:relative;display:flex;flex-direction:column;align-items:flex-end;gap:10px;}
+.view-all-wrap{position:relative;display:flex;flex-direction:column;align-items:flex-end;gap:10px;}
 .btn-view-all{background:transparent;color:var(--gold);border:1px solid var(--gold);padding:10px 20px;text-decoration:none;font-size:14px;border-radius:4px;}
 .view-all-link{color:var(--gold);text-decoration:none;font-size:15px;}
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
 .card{background:#1a1a1a;height:220px;display:flex;align-items:flex-end;padding:16px;font-size:16px;border-radius:4px;}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:20px;}
+.service-card{background:#1a1a1a;padding:30px 24px;border-radius:4px;}
+.service-card h3{font-size:18px;margin-bottom:10px;color:var(--gold);}
+.service-card p{color:#ccc;font-size:14px;line-height:1.5;}
+.process-list{display:grid;grid-template-columns:repeat(5,1fr);gap:20px;margin-top:20px;}
+.process-step .num{font-size:28px;color:var(--gold);font-weight:bold;margin-bottom:10px;}
+.process-step h3{font-size:16px;margin-bottom:8px;}
+.process-step p{color:#ccc;font-size:13px;line-height:1.5;}
+.iletisim p{color:#ccc;margin-top:10px;}
 footer{padding:40px 60px;background:#000;color:#888;text-align:center;font-size:14px;}
 </style>
-  </head>
-  <body>
-  <header>
-  <div class="logo">KC MIMARLIK</div>
-  <nav>
-  <a href="index.html" class="active">Ana Sayfa</a>
-  <a href="projeler.html">Projeler</a>
-  </nav>
-  </header>
+</head>
+<body>
+<header>
+<div class="logo">KC MİMARLIK</div>
+<nav>
+<a href="index.html" class="active">Ana Sayfa</a>
+<a href="projeler.html">Projeler</a>
+</nav>
+</header>
 
-  <section class="hero">
-  <h1>Mekana Deger Katan Modern Mimari</h1>
-<p>Yenilikci vizyonumuz, ust duzey 3D modelleme ve sinematik sunumlarimizla hayallerinizdeki yapilari gercege donusturuyoruz.</p>
-  <a href="#iletisim" class="btn-primary">Iletisime Gecin</a>
-  </section>
-
-  <section>
-  <div class="section-label">Biz Kimiz</div>
-  <h2>Cekmekoy merkezli, Istanbul geneline hizmet veren bir tasarim ve uygulama ofisiyiz.</h2>
+<section class="hero">
+<h1>Mekana Değer Katan Modern Mimari</h1>
+<p>Yenilikçi vizyonumuz, üst düzey 3D modelleme ve sinematik sunumlarımızla hayallerinizdeki yapıları gerçeğe dönüştürüyoruz.</p>
+<a href="#iletisim" class="btn-primary">İletişime Geçin</a>
 </section>
 
-<section id="projeler-bolumu">
+<section class="biz-kimiz">
+<div class="section-label">Biz Kimiz</div>
+<p class="lead">Çekmeköy merkezli, İstanbul geneline hizmet veren bir tasarım ve uygulama ofisiyiz.</p>
+<p class="desc">KC Mimarlık olarak, mimari projelendirmeden iç mekan tasarımına, 3D görselleştirmeden uygulama ve taahhüt süreçlerine kadar geniş bir yelpazede hizmet sunuyoruz. Her projede fonksiyonelliği estetikle buluşturarak mekana değer katmayı hedefliyoruz.</p>
+</section>
+
+<section class="hizmetler">
+<div class="section-label">Hizmetler</div>
+<h2>Sunduğumuz Hizmetler</h2>
+<div class="services-grid">
+<div class="service-card"><h3>Mimari Projelendirme</h3><p>Konsept aşamasından uygulama projesine kadar eksiksiz mimari tasarım hizmeti.</p></div>
+<div class="service-card"><h3>İç Mekan Tasarımı</h3><p>Yaşam alanlarınızı işlevsel ve estetik bir şekilde yeniden tasarlıyoruz.</p></div>
+<div class="service-card"><h3>3D Görselleştirme</h3><p>Projelerinizi gerçekçi 3D render ve sinematik sunumlarla hayata geçirmeden önce görün.</p></div>
+<div class="service-card"><h3>Uygulama &amp; Taahhüt</h3><p>Tasarımdan inşaata, projelerinizin sahada eksiksiz uygulanmasını sağlıyoruz.</p></div>
+<div class="service-card"><h3>Proje Yönetimi</h3><p>Zaman, bütçe ve kalite dengesini gözeterek projenizi baştan sona yönetiyoruz.</p></div>
+<div class="service-card"><h3>Danışmanlık</h3><p>Mimari ve iç mekan konularında uzman görüşü ve danışmanlık desteği sunuyoruz.</p></div>
+</div>
+</section>
+
+<section class="surec">
+<div class="section-label">Süreç</div>
+<h2>Çalışma Sürecimiz</h2>
+<div class="process-list">
+<div class="process-step"><div class="num">01</div><h3>Ön Görüşme</h3><p>İhtiyaç ve beklentilerinizi birlikte değerlendiriyoruz.</p></div>
+<div class="process-step"><div class="num">02</div><h3>Konsept Tasarım</h3><p>Projenizin genel vizyonunu ve konseptini oluşturuyoruz.</p></div>
+<div class="process-step"><div class="num">03</div><h3>Detay Projelendirme</h3><p>Uygulamaya yönelik detaylı proje çizimlerini hazırlıyoruz.</p></div>
+<div class="process-step"><div class="num">04</div><h3>Uygulama</h3><p>Sahada uygulama sürecini titizlikle takip ediyoruz.</p></div>
+<div class="process-step"><div class="num">05</div><h3>Teslim</h3><p>Projenizi eksiksiz ve zamanında teslim ediyoruz.</p></div>
+</div>
+</section>
+
+<section class="projeler-bolumu" id="projeler-bolumu">
 <div class="projects-header">
 <div>
 <div class="section-label">Portfolyo</div>
-<h2>Secili Projeler</h2>
-  </div>
-  <div class="view-all-wrap">
-  <a href="projeler.html" class="btn-view-all">Tum Projeleri Gor</a>
-  <a href="projeler.html" class="view-all-link">Tum Projeleri Gor &rarr;</a>
-  </div>
-  </div>
-  <div class="grid">
-  <div class="card">Cekmekoy Villa Projesi</div>
-<div class="card">Atasehir Ofis Ic Mekan</div>
-  <div class="card">Maslak Rezidans</div>
-  </div>
-  </section>
+<h2>Seçili Projeler</h2>
+</div>
+<div class="view-all-wrap">
+<a href="projeler.html" class="btn-view-all">Tüm Projeleri Gör</a>
+<a href="projeler.html" class="view-all-link">Tüm Projeleri Gör &rarr;</a>
+</div>
+</div>
+<div class="grid">
+<div class="card">Çekmeköy Villa Projesi</div>
+<div class="card">Ataşehir Ofis İç Mekan</div>
+<div class="card">Maslak Rezidans</div>
+<div class="card">Beykoz Konak Restorasyonu</div>
+<div class="card">Sancaktepe Ticari Alan</div>
+</div>
+</section>
 
-  <section id="iletisim">
-  <div class="section-label">Iletisim</div>
-  <h2>Iletisim Bilgileri</h2>
-  <p>Projeleriniz hakkinda gorusmek icin bize ulasin.</p>
-  </section>
+<section class="iletisim" id="iletisim">
+<div class="section-label">İletişim</div>
+<h2>İletişim Bilgileri</h2>
+<p>Projeleriniz hakkında görüşmek için bize ulaşın.</p>
+</section>
 
-  <footer>KC Mimarlik &copy; 2026</footer>
-  </body>
-  </html>
+<footer>KC Mimarlık &copy; 2026</footer>
+</body>
+</html>
