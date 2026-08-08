@@ -1,130 +1,267 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<title>KC Mimarlık</title>
-<style>
-:root{--gold:#d4af37;--bg:#0b0b0b;}
-*{box-sizing:border-box;margin:0;padding:0;font-family:Georgia, 'Times New Roman', serif;}
-body{background:var(--bg);color:#fff;}
-header{display:flex;justify-content:space-between;align-items:center;padding:20px 60px;background:#000;}
-header .logo{font-size:22px;font-weight:bold;letter-spacing:1px;}
-nav a{color:#fff;margin-left:30px;text-decoration:none;font-size:15px;}
-nav a.active{color:var(--gold);}
-.hero{padding:120px 60px;text-align:center;background:#111;}
-.hero h1{font-size:48px;margin-bottom:20px;}
-.hero p{color:#ccc;max-width:700px;margin:0 auto 30px auto;}
-.btn-primary{display:inline-block;background:var(--gold);color:#000;padding:14px 30px;text-decoration:none;font-weight:bold;}
-section{padding:80px 60px;}
-.section-label{color:var(--gold);letter-spacing:3px;font-size:13px;margin-bottom:10px;text-transform:uppercase;}
-.biz-kimiz p.lead{font-size:22px;font-weight:bold;max-width:800px;margin-bottom:20px;}
-.biz-kimiz p.desc{color:#ccc;max-width:800px;line-height:1.6;}
-.projects-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:40px;position:relative;}
-.projects-header h2{font-size:32px;}
-.view-all-wrap{position:relative;display:flex;flex-direction:column;align-items:flex-end;gap:10px;}
-.btn-view-all{background:transparent;color:var(--gold);border:1px solid var(--gold);padding:10px 20px;text-decoration:none;font-size:14px;border-radius:4px;}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
-.card{background:#1a1a1a;height:220px;display:flex;align-items:flex-end;padding:16px;font-size:16px;border-radius:4px;}
-.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:20px;}
-.service-card{background:#1a1a1a;padding:30px 24px;border-radius:4px;}
-.service-card h3{font-size:18px;margin-bottom:10px;color:var(--gold);}
-.service-card p{color:#ccc;font-size:14px;line-height:1.5;}
-.process-list{display:grid;grid-template-columns:repeat(5,1fr);gap:20px;margin-top:20px;}
-.process-step .num{font-size:28px;color:var(--gold);font-weight:bold;margin-bottom:10px;}
-.process-step h3{font-size:16px;margin-bottom:8px;}
-.process-step p{color:#ccc;font-size:13px;line-height:1.5;}
-.iletisim-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:30px;align-items:start;}
-.iletisim-info p{color:#ccc;margin-bottom:14px;line-height:1.6;}
-.iletisim-info strong{color:var(--gold);display:block;font-size:13px;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;}
-.btn-whatsapp{display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#000;padding:12px 24px;text-decoration:none;font-weight:bold;border-radius:4px;margin-top:10px;}
-.btn-whatsapp svg{width:20px;height:20px;fill:#fff;}
-.map-wrap iframe{width:100%;height:300px;border:0;border-radius:4px;}
-footer{padding:40px 60px;background:#000;color:#888;text-align:center;font-size:14px;}
-@media(max-width:800px){.iletisim-grid{grid-template-columns:1fr;}}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KC Mimarlık | Modern Mimari ve Tasarım</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
+        html { scroll-behavior: smooth; }
+        body { width: 100%; background-color: #0d0d0d; color: #f5f5f5; overflow-x: hidden; }
+        h1, h2, h3, .display { font-family: 'Fraunces', serif; font-weight: 500; }
+        header.site-header {
+            position: fixed; top: 0; left: 0; width: 100%; z-index: 100;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 22px 60px; background: rgba(13,13,13,0.55); backdrop-filter: blur(8px);
+        }
+        header.site-header .logo { font-family: 'Fraunces', serif; font-size: 21px; font-weight: 600; color: #fff; letter-spacing: 1px; }
+        header.site-header nav a { color: #eee; margin-left: 30px; text-decoration: none; font-size: 15px; font-weight: 500; }
+        header.site-header nav a.active { color: #d4af37; }
+        .eyebrow { display: flex; align-items: center; gap: 12px; font-size: 13px; letter-spacing: 3px; text-transform: uppercase; color: #d4af37; font-weight: 600; margin-bottom: 18px; }
+        .eyebrow::before { content: ""; width: 30px; height: 1px; background: #d4af37; }
+        section { padding: 100px 60px; }
+        .section-inner { max-width: 1300px; margin: 0 auto; }
+        .hero { position: relative; width: 100%; min-height: 640px; display: flex; align-items: center; justify-content: center; text-align: center; padding: 60px 20px; }
+        .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: -1; }
+        .hero-content h1 { font-size: 52px; margin-bottom: 20px; line-height: 1.2; max-width: 800px; }
+        .hero-content p { font-size: 18px; color: #aaa; max-width: 620px; margin: 0 auto 35px auto; font-weight: 300; }
+        .btn-primary { display: inline-block; padding: 14px 32px; background: #d4af37; color: #0d0d0d; font-weight: 600; border-radius: 4px; text-decoration: none; transition: all 0.3s; }
+        .btn-primary:hover { background: #fff; }
+        .about { background: #0d0d0d; }
+        .about-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center; }
+        .about-images { position: relative; height: 480px; }
+        .about-images img { position: absolute; border-radius: 6px; object-fit: cover; }
+        .about-img-1 { width: 78%; height: 360px; top: 0; left: 0; }
+        .about-img-2 { width: 55%; height: 260px; bottom: 0; right: 0; border: 6px solid #0d0d0d; }
+        .about-text h2 { font-size: 34px; margin-bottom: 22px; line-height: 1.3; }
+        .about-text p { color: #aaa; line-height: 1.8; margin-bottom: 30px; }
+        .about-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .about-stats div h3 { font-size: 32px; color: #d4af37; margin-bottom: 4px; }
+        .about-stats div p { font-size: 13px; color: #888; margin: 0; }
+        .services { background: #090909; }
+        .services-header { text-align: center; max-width: 620px; margin: 0 auto 60px auto; }
+        .services-header .eyebrow { justify-content: center; }
+        .services-header .eyebrow::after { content: ""; width: 30px; height: 1px; background: #d4af37; }
+        .services-header h2 { font-size: 32px; }
+        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.08); }
+        .service-card { background: #090909; padding: 44px 34px; transition: background 0.3s, transform 0.4s ease; }
+        .service-card:hover { background: #131313; transform: translateY(-6px); }
+        .service-card i { font-size: 26px; color: #d4af37; margin-bottom: 22px; display: block; transition: transform 0.4s ease; }
+        .service-card:hover i { transform: rotate(-8deg) scale(1.1); }
+        .service-card h3 { font-size: 19px; font-weight: 600; font-family: 'Plus Jakarta Sans', sans-serif; margin-bottom: 12px; }
+        .service-card p { font-size: 14px; color: #999; line-height: 1.7; }
+        .process { background: #0d0d0d; }
+        .process-header { max-width: 560px; margin-bottom: 60px; }
+        .process-header h2 { font-size: 32px; margin-bottom: 16px; }
+        .process-header p { color: #aaa; line-height: 1.7; }
+        .process-steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px; }
+        .process-step { border-top: 1px solid rgba(255,255,255,0.15); padding-top: 20px; }
+        .process-step .num { font-family: 'Fraunces', serif; font-size: 30px; color: #d4af37; display: block; margin-bottom: 14px; }
+        .process-step h4 { font-size: 15px; font-weight: 600; margin-bottom: 8px; }
+        .process-step p { font-size: 13px; color: #888; line-height: 1.6; }
+        .projects { background: #090909; }
+        .projects-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 50px; flex-wrap: wrap; gap: 20px; }
+        .projects-header h2 { font-size: 32px; }
+        .btn-view-all { display: inline-block; background: transparent; color: #d4af37; border: 1px solid #d4af37; padding: 10px 20px; border-radius: 4px; text-decoration: none; font-size: 14px; font-weight: 600; white-space: nowrap; transition: all 0.3s; }
+        .btn-view-all:hover { background: #d4af37; color: #0d0d0d; }
+        .projects-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+        .project-card { position: relative; height: 280px; border-radius: 6px; overflow: hidden; transition: transform 0.4s ease; }
+        .project-card:first-child { grid-column: span 2; grid-row: span 2; height: 576px; }
+        .project-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+        .project-card:hover img { transform: scale(1.06); }
+        .project-card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 55%); }
+        .project-card span { position: absolute; bottom: 18px; left: 20px; z-index: 2; font-size: 15px; font-weight: 600; }
+        .contact-footer { padding: 100px 40px 40px 40px; background: #060606; border-top: 1px solid rgba(255,255,255,0.1); }
+        .contact-wrapper { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .contact-info h2 { font-size: 30px; margin-bottom: 20px; }
+        .contact-info p { color: #aaa; margin-bottom: 30px; line-height: 1.6; }
+        .info-item { display: flex; align-items: flex-start; gap: 15px; margin-bottom: 20px; }
+        .info-item i { font-size: 20px; color: #d4af37; margin-top: 4px; }
+        .info-item div h4 { font-size: 15px; color: #fff; margin-bottom: 4px; }
+        .info-item div p, .info-item div a { font-size: 14px; color: #aaa; text-decoration: none; transition: color 0.3s; }
+        .info-item div a:hover { color: #fff; }
+        .map-container { width: 100%; height: 380px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); }
+        .map-container iframe { width: 100%; height: 100%; border: none; }
+        .footer-bottom { max-width: 1300px; margin: 60px auto 0 auto; padding-top: 25px; border-top: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center; color: #666; font-size: 13px; flex-wrap: wrap; gap: 10px; }
+        .reveal { opacity: 0; transform: translateY(36px); transition: opacity 0.8s cubic-bezier(.2,.7,.3,1), transform 0.8s cubic-bezier(.2,.7,.3,1); }
+        .reveal.in-view { opacity: 1; transform: translateY(0); }
+        .services-grid .reveal.in-view, .process-steps .reveal.in-view, .projects-grid .reveal.in-view { transition-delay: var(--delay, 0s); }
+        .hero-slides { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; }
+        .hero-slides img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; filter: brightness(0.4); opacity: 0; animation: heroFade 18s infinite; transform: scale(1); }
+        .hero-slides img:nth-child(1) { animation-delay: 0s; }
+        .hero-slides img:nth-child(2) { animation-delay: 6s; }
+        .hero-slides img:nth-child(3) { animation-delay: 12s; }
+        @keyframes heroFade { 0% { opacity: 0; transform: scale(1); } 4% { opacity: 1; } 30% { opacity: 1; transform: scale(1.08); } 34% { opacity: 0; transform: scale(1.08); } 100% { opacity: 0; } }
+        .hero-content { animation: heroContentIn 1.1s cubic-bezier(.2,.7,.3,1) both; }
+        @keyframes heroContentIn { 0% { opacity: 0; transform: translateY(24px); } 100% { opacity: 1; transform: translateY(0); } }
+        @media (prefers-reduced-motion: reduce) { .reveal, .hero-content, .hero-slides img { animation: none !important; transition: none !important; opacity: 1 !important; transform: none !important; } }
+        .whatsapp-float { position: fixed; bottom: 20px; right: 20px; background: #25d366; color: #fff; width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 999; transition: transform 0.3s; }
+        .whatsapp-float:hover { transform: scale(1.1); }
+        @media (max-width: 968px) {
+            section { padding: 70px 20px; }
+            header.site-header { padding: 18px 24px; }
+            .hero { min-height: 520px; padding: 40px 16px; }
+            .hero-content h1 { font-size: 34px; }
+            .about-wrapper { grid-template-columns: 1fr; gap: 40px; }
+            .about-images { height: 340px; }
+            .services-grid { grid-template-columns: 1fr; }
+            .process-steps { grid-template-columns: repeat(2, 1fr); }
+            .projects-grid { grid-template-columns: repeat(2, 1fr); }
+            .project-card:first-child { grid-column: span 2; height: 300px; }
+            .project-card { height: 200px; }
+            .contact-wrapper { grid-template-columns: 1fr; gap: 40px; }
+        }
+    </style>
 </head>
 <body>
-<header>
-<div class="logo">KC MİMARLIK</div>
-<nav>
-<a href="index.html" class="active">Ana Sayfa</a>
-<a href="projeler.html">Projeler</a>
-</nav>
-</header>
+    <header class="site-header">
+        <div class="logo">KC MİMARLIK</div>
+        <nav>
+            <a href="index.html" class="active">Ana Sayfa</a>
+            <a href="projeler.html">Projeler</a>
+        </nav>
+    </header>
 
-<section class="hero">
-<h1>Mekana Değer Katan Modern Mimari</h1>
-<p>Yenilikçi vizyonumuz, üst düzey 3D modelleme ve sinematik sunumlarımızla hayallerinizdeki yapıları gerçeğe dönüştürüyoruz.</p>
-<a href="#iletisim" class="btn-primary">İletişime Geçin</a>
-</section>
+    <section class="hero" style="padding-left:0;padding-right:0;">
+        <div class="hero-slides">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=80" alt="KC Mimarlık Mimari Tasarım">
+            <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1920&q=80" alt="KC Mimarlık Proje Çalışması">
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80" alt="KC Mimarlık İç Mekan">
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Mekana Değer Katan Modern Mimari</h1>
+            <p>Yenilikçi vizyonumuz, üst düzey 3D modelleme ve sinematik sunumlarımızla hayallerinizdeki yapıları gerçeğe dönüştürüyoruz.</p>
+            <a href="#iletisim" class="btn-primary">İletişime Geçin</a>
+        </div>
+    </section>
 
-<section class="biz-kimiz">
-<div class="section-label">Biz Kimiz</div>
-<p class="lead">Çekmeköy merkezli, İstanbul geneline hizmet veren bir tasarım ve uygulama ofisiyiz.</p>
-<p class="desc">KC Mimarlık olarak, mimari projelendirmeden iç mekan tasarımına, 3D görselleştirmeden uygulama ve taahhüt süreçlerine kadar geniş bir yelpazede hizmet sunuyoruz. Her projede fonksiyonelliği estetikle buluşturarak mekana değer katmayı hedefliyoruz.</p>
-</section>
+    <section class="about">
+        <div class="section-inner about-wrapper">
+            <div class="about-images reveal">
+                <img class="about-img-1" src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=900&q=80" alt="KC Mimarlık proje çalışması">
+                <img class="about-img-2" src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=700&q=80" alt="KC Mimarlık iç mekan detayı">
+            </div>
+            <div class="about-text reveal">
+                <div class="eyebrow">Biz Kimiz</div>
+                <h2>Çekmeköy merkezli, İstanbul geneline hizmet veren bir tasarım ve uygulama ofisiyiz.</h2>
+                <p>KC Mimarlık olarak konut, ofis ve ticari alanlarda; konsept tasarımdan anahtar teslim uygulamaya kadar tüm süreci tek çatı altında yürütüyoruz. Her projede mekânın kullanıcısını merkeze alan, işlevsellikle estetiği dengeleyen bir yaklaşım benimsiyoruz.</p>
+                <div class="about-stats">
+                    <div><h3 class="counter" data-target="9" data-suffix="+">0</h3><p>Yıllık Deneyim</p></div>
+                    <div><h3 class="counter" data-target="120" data-suffix="+">0</h3><p>Tamamlanan Proje</p></div>
+                    <div><h3 class="counter" data-target="98" data-prefix="%">0</h3><p>Müşteri Memnuniyeti</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section class="hizmetler">
-<div class="section-label">Hizmetler</div>
-<h2>Sunduğumuz Hizmetler</h2>
-<div class="services-grid">
-<div class="service-card"><h3>Mimari Projelendirme</h3><p>Konsept aşamasından uygulama projesine kadar eksiksiz mimari tasarım hizmeti.</p></div>
-<div class="service-card"><h3>İç Mekan Tasarımı</h3><p>Yaşam alanlarınızı işlevsel ve estetik bir şekilde yeniden tasarlıyoruz.</p></div>
-<div class="service-card"><h3>3D Görselleştirme</h3><p>Projelerinizi gerçekçi 3D render ve sinematik sunumlarla hayata geçirmeden önce görün.</p></div>
-<div class="service-card"><h3>Uygulama &amp; Taahhüt</h3><p>Tasarımdan inşaata, projelerinizin sahada eksiksiz uygulanmasını sağlıyoruz.</p></div>
-<div class="service-card"><h3>Proje Yönetimi</h3><p>Zaman, bütçe ve kalite dengesini gözeterek projenizi baştan sona yönetiyoruz.</p></div>
-<div class="service-card"><h3>Danışmanlık</h3><p>Mimari ve iç mekan konularında uzman görüşü ve danışmanlık desteği sunuyoruz.</p></div>
-</div>
-</section>
+    <section class="services">
+        <div class="section-inner">
+            <div class="services-header reveal">
+                <div class="eyebrow">Hizmetlerimiz</div>
+                <h2>Tasarımdan teslimata bütün süreç</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card reveal" style="--delay:0s"><i class="fa-solid fa-compass-drafting"></i><h3>Mimari Projelendirme</h3><p>İhtiyaç analizinden vaziyet planına, ruhsat sürecine uygun mimari projelerin hazırlanması.</p></div>
+                <div class="service-card reveal" style="--delay:0.08s"><i class="fa-solid fa-couch"></i><h3>İç Mekan Tasarımı</h3><p>Konut ve ticari alanlarda malzeme, aydınlatma ve mobilya seçimini kapsayan bütüncül tasarım.</p></div>
+                <div class="service-card reveal" style="--delay:0.16s"><i class="fa-solid fa-cubes"></i><h3>3D Görselleştirme</h3><p>Uygulamaya geçmeden önce mekânı gerçekçi render ve sanal turlarla birlikte deneyimleme.</p></div>
+                <div class="service-card reveal" style="--delay:0.24s"><i class="fa-solid fa-helmet-safety"></i><h3>Uygulama & Taahhüt</h3><p>Şantiye organizasyonu, malzeme tedariği ve saha uygulamasının uçtan uca yönetimi.</p></div>
+                <div class="service-card reveal" style="--delay:0.32s"><i class="fa-solid fa-diagram-project"></i><h3>Proje Yönetimi</h3><p>Bütçe, takvim ve kalite kontrolünü tek elden yürüten, işvereni temsil eden proje danışmanlığı.</p></div>
+                <div class="service-card reveal" style="--delay:0.4s"><i class="fa-solid fa-magnifying-glass-chart"></i><h3>Danışmanlık</h3><p>Arsa değerlendirme, imar araştırması ve yatırım öncesi fizibilite desteği.</p></div>
+            </div>
+        </div>
+    </section>
 
-<section class="surec">
-<div class="section-label">Süreç</div>
-<h2>Çalışma Sürecimiz</h2>
-<div class="process-list">
-<div class="process-step"><div class="num">01</div><h3>Ön Görüşme</h3><p>İhtiyaç ve beklentilerinizi birlikte değerlendiriyoruz.</p></div>
-<div class="process-step"><div class="num">02</div><h3>Konsept Tasarım</h3><p>Projenizin genel vizyonunu ve konseptini oluşturuyoruz.</p></div>
-<div class="process-step"><div class="num">03</div><h3>Detay Projelendirme</h3><p>Uygulamaya yönelik detaylı proje çizimlerini hazırlıyoruz.</p></div>
-<div class="process-step"><div class="num">04</div><h3>Uygulama</h3><p>Sahada uygulama sürecini titizlikle takip ediyoruz.</p></div>
-<div class="process-step"><div class="num">05</div><h3>Teslim</h3><p>Projenizi eksiksiz ve zamanında teslim ediyoruz.</p></div>
-</div>
-</section>
+    <section class="process">
+        <div class="section-inner">
+            <div class="process-header reveal">
+                <div class="eyebrow">Çalışma Sürecimiz</div>
+                <h2>Beş adımda fikirden anahtar teslime</h2>
+                <p>Her proje aynı titiz süreçten geçer; böylece süreç boyunca şeffaflık ve kontrol hep sizde kalır.</p>
+            </div>
+            <div class="process-steps">
+                <div class="process-step reveal" style="--delay:0s"><span class="num">01</span><h4>Ön Görüşme</h4><p>İhtiyaç, bütçe ve zaman planının netleştirilmesi.</p></div>
+                <div class="process-step reveal" style="--delay:0.1s"><span class="num">02</span><h4>Konsept Tasarım</h4><p>Mekân kurgusu ve ilk tasarım alternatiflerinin sunumu.</p></div>
+                <div class="process-step reveal" style="--delay:0.2s"><span class="num">03</span><h4>Detay Projelendirme</h4><p>Malzeme, statik ve tesisat detaylarının netleştirilmesi.</p></div>
+                <div class="process-step reveal" style="--delay:0.3s"><span class="num">04</span><h4>Uygulama</h4><p>Saha organizasyonu ve düzenli ilerleme raporlaması.</p></div>
+                <div class="process-step reveal" style="--delay:0.4s"><span class="num">05</span><h4>Teslim</h4><p>Son kontroller sonrası anahtar teslim proje devri.</p></div>
+            </div>
+        </div>
+    </section>
 
-<section class="projeler-bolumu" id="projeler-bolumu">
-<div class="projects-header">
-<div>
-<div class="section-label">Portfolyo</div>
-<h2>Seçili Projeler</h2>
-</div>
-<div class="view-all-wrap">
-<a href="projeler.html" class="btn-view-all">Tüm Projeleri Gör</a>
-</div>
-</div>
-<div class="grid">
-<div class="card">Çekmeköy Villa Projesi</div>
-<div class="card">Ataşehir Ofis İç Mekan</div>
-<div class="card">Maslak Rezidans</div>
-<div class="card">Beykoz Konak Restorasyonu</div>
-<div class="card">Sancaktepe Ticari Alan</div>
-</div>
-</section>
+    <section class="projects" id="projeler-bolumu">
+        <div class="section-inner">
+            <div class="projects-header reveal">
+                <h2>Seçili Projeler</h2>
+                <a href="projeler.html" class="btn-view-all">Tüm Projeleri Gör</a>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card reveal" style="--delay:0s"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1000&q=80" alt="Çekmeköy Villa Projesi"><span>Çekmeköy Villa Projesi</span></div>
+                <div class="project-card reveal" style="--delay:0.1s"><img src="https://images.unsplash.com/photo-1449844908441-8829872d2607?auto=format&fit=crop&w=700&q=80" alt="Ataşehir Ofis İç Mekan"><span>Ataşehir Ofis İç Mekan</span></div>
+                <div class="project-card reveal" style="--delay:0.2s"><img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=700&q=80" alt="Maslak Rezidans"><span>Maslak Rezidans</span></div>
+                <div class="project-card reveal" style="--delay:0.3s"><img src="https://images.unsplash.com/photo-1524230572899-a752b3835840?auto=format&fit=crop&w=700&q=80" alt="Beykoz Konak Restorasyonu"><span>Beykoz Konak Restorasyonu</span></div>
+                <div class="project-card reveal" style="--delay:0.4s"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=700&q=80" alt="Sancaktepe Ticari Alan"><span>Sancaktepe Ticari Alan</span></div>
+            </div>
+        </div>
+    </section>
 
-<section class="iletisim" id="iletisim">
-<div class="section-label">İletişim</div>
-<h2>İletişim Bilgileri</h2>
-<p>Projeleriniz hakkında görüşmek için bize ulaşın.</p>
-<div class="iletisim-grid">
-<div class="iletisim-info">
-<p><strong>Adres</strong>Merkez Mah. Ferah Sk. No:7 D:5 Çekmeköy/İstanbul</p>
-<p><strong>Telefon</strong>0532 586 11 08</p>
-<p><strong>E-posta</strong>kadir@kcmimarlik.com</p>
-<a href="https://wa.me/905325861108" target="_blank" rel="noopener" class="btn-whatsapp"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413"/></svg>WhatsApp'tan Yazın</a>
-</div>
-<div class="map-wrap">
-<iframe src="https://www.google.com/maps?q=Cekmekoy%20KC%20Mimarlik%2C%20Merkez%20Mah.%20Ferah%20Sk.%20No%3A7%20D%3A5%20Cekmekoy%20Istanbul&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-</div>
-</div>
-</section>
+    <section class="contact-footer" id="iletisim">
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <h2>İletişim Bilgileri</h2>
+                <p>Projeleriniz hakkında görüşmek, sorularınızı iletmek veya ofisimizi ziyaret etmek için aşağıdaki kanallardan bize ulaşabilirsiniz.</p>
+                <div class="info-item"><i class="fa-solid fa-location-dot"></i><div><h4>Ofis Adresi</h4><p>Merkez mah. Ferah sk. No:7 D:5, Çekmeköy / İstanbul</p></div></div>
+                <div class="info-item"><i class="fa-solid fa-phone"></i><div><h4>Telefon</h4><p><a href="tel:05325861108">0532 586 11 08</a></p></div></div>
+                <div class="info-item"><i class="fa-solid fa-envelope"></i><div><h4>E-Posta</h4><p><a href="mailto:kadir@kcmimarlik.com">kadir@kcmimarlik.com</a></p></div></div>
+                <div class="info-item"><i class="fa-brands fa-whatsapp"></i><div><h4>WhatsApp Destek</h4><p><a href="https://wa.me/905325861108" target="_blank" rel="noopener">0532 586 11 08 üzerinden yazın</a></p></div></div>
+            </div>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps?q=Cekmekoy%20KC%20Mimarlik%2C%20Merkez%20Mah.%20Ferah%20Sk.%20No%3A7%20D%3A5%20Cekmekoy%20Istanbul&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 KC Mimarlık. Tüm hakları saklıdır.</p>
+            <p>Modern Mimari & Tasarım</p>
+        </div>
+    </section>
 
-<footer>KC Mimarlık &copy; 2026</footer>
+    <a href="https://wa.me/905325861108" target="_blank" rel="noopener" class="whatsapp-float"><i class="fa-brands fa-whatsapp"></i></a>
+
+    <script>
+        const revealItems = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+        revealItems.forEach(item => revealObserver.observe(item));
+
+        const counters = document.querySelectorAll('.counter');
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                const el = entry.target;
+                const target = parseInt(el.dataset.target, 10);
+                const prefix = el.dataset.prefix || '';
+                const suffix = el.dataset.suffix || '';
+                const duration = 1400;
+                const start = performance.now();
+                function tick(now) {
+                    const progress = Math.min((now - start) / duration, 1);
+                    const eased = 1 - Math.pow(1 - progress, 3);
+                    el.textContent = prefix + Math.round(eased * target) + suffix;
+                    if (progress < 1) requestAnimationFrame(tick);
+                }
+                requestAnimationFrame(tick);
+                counterObserver.unobserve(el);
+            });
+        }, { threshold: 0.4 });
+        counters.forEach(c => counterObserver.observe(c));
+    </script>
 </body>
 </html>
