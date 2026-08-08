@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+  <html lang="tr">
+  <head>
+  <meta charset="UTF-8">
+  <title>KC Mimarlik</title>
+  <style>
+  :root{--gold:#d4af37;--bg:#0b0b0b;}
+  *{box-sizing:border-box;margin:0;padding:0;font-family:Georgia, 'Times New Roman', serif;}
+body{background:var(--bg);color:#fff;}
+header{display:flex;justify-content:space-between;align-items:center;padding:20px 60px;background:#000;}
+header .logo{font-size:22px;font-weight:bold;letter-spacing:1px;}
+nav a{color:#fff;margin-left:30px;text-decoration:none;font-size:15px;}
+nav a.active{color:var(--gold);}
+.hero{padding:120px 60px;text-align:center;background:#111;}
+.hero h1{font-size:48px;margin-bottom:20px;}
+.hero p{color:#ccc;max-width:700px;margin:0 auto 30px auto;}
+.btn-primary{display:inline-block;background:var(--gold);color:#000;padding:14px 30px;text-decoration:none;font-weight:bold;}
+section{padding:80px 60px;}
+.section-label{color:var(--gold);letter-spacing:3px;font-size:13px;margin-bottom:10px;text-transform:uppercase;}
+.projects-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:40px;position:relative;}
+.projects-header h2{font-size:32px;}
+  .view-all-wrap{position:relative;display:flex;flex-direction:column;align-items:flex-end;gap:10px;}
+.btn-view-all{background:transparent;color:var(--gold);border:1px solid var(--gold);padding:10px 20px;text-decoration:none;font-size:14px;border-radius:4px;}
+.view-all-link{color:var(--gold);text-decoration:none;font-size:15px;}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.card{background:#1a1a1a;height:220px;display:flex;align-items:flex-end;padding:16px;font-size:16px;border-radius:4px;}
+footer{padding:40px 60px;background:#000;color:#888;text-align:center;font-size:14px;}
+</style>
+  </head>
+  <body>
+  <header>
+  <div class="logo">KC MIMARLIK</div>
+  <nav>
+  <a href="index.html" class="active">Ana Sayfa</a>
+  <a href="projeler.html">Projeler</a>
+  </nav>
+  </header>
+
+  <section class="hero">
+  <h1>Mekana Deger Katan Modern Mimari</h1>
+<p>Yenilikci vizyonumuz, ust duzey 3D modelleme ve sinematik sunumlarimizla hayallerinizdeki yapilari gercege donusturuyoruz.</p>
+  <a href="#iletisim" class="btn-primary">Iletisime Gecin</a>
+  </section>
+
+  <section>
+  <div class="section-label">Biz Kimiz</div>
+  <h2>Cekmekoy merkezli, Istanbul geneline hizmet veren bir tasarim ve uygulama ofisiyiz.</h2>
+</section>
+
+<section id="projeler-bolumu">
+<div class="projects-header">
+<div>
+<div class="section-label">Portfolyo</div>
+<h2>Secili Projeler</h2>
+  </div>
+  <div class="view-all-wrap">
+  <a href="projeler.html" class="btn-view-all">Tum Projeleri Gor</a>
+  <a href="projeler.html" class="view-all-link">Tum Projeleri Gor &rarr;</a>
+  </div>
+  </div>
+  <div class="grid">
+  <div class="card">Cekmekoy Villa Projesi</div>
+<div class="card">Atasehir Ofis Ic Mekan</div>
+  <div class="card">Maslak Rezidans</div>
+  </div>
+  </section>
+
+  <section id="iletisim">
+  <div class="section-label">Iletisim</div>
+  <h2>Iletisim Bilgileri</h2>
+  <p>Projeleriniz hakkinda gorusmek icin bize ulasin.</p>
+  </section>
+
+  <footer>KC Mimarlik &copy; 2026</footer>
+  </body>
+  </html>
