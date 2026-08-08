@@ -44,6 +44,11 @@ section { padding: 100px 60px; }
 .value-card i { font-size: 26px; color: #d4af37; margin-bottom: 18px; display: block; }
 .value-card h3 { font-size: 17px; font-weight: 600; margin-bottom: 10px; }
 .value-card p { font-size: 14px; color: #999; line-height: 1.7; }
+.mv-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
+.mv-card { background: #131313; border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 44px 38px; }
+.mv-card i { font-size: 30px; color: #d4af37; margin-bottom: 20px; display: block; }
+.mv-card h3 { font-size: 22px; margin-bottom: 14px; }
+.mv-card p { font-size: 15px; color: #aaa; line-height: 1.8; }
 .contact-footer { padding: 100px 40px 40px 40px; background: #060606; border-top: 1px solid rgba(255,255,255,0.1); }
 .contact-wrapper { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
 .contact-info h2 { font-size: 30px; margin-bottom: 20px; }
@@ -68,6 +73,7 @@ header.site-header { padding: 18px 24px; }
 .about-wrapper { grid-template-columns: 1fr; gap: 40px; }
 .about-images { height: 340px; }
 .values-grid { grid-template-columns: 1fr 1fr; }
+.mv-grid { grid-template-columns: 1fr; }
 .contact-wrapper { grid-template-columns: 1fr; gap: 40px; }
 }
 </style>
@@ -79,6 +85,7 @@ header.site-header { padding: 18px 24px; }
 <a href="index.html">Ana Sayfa</a>
 <a href="projeler.html">Projeler</a>
 <a href="hakkimizda.html" class="active">Hakkımızda</a>
+<a href="iletisim.html">İletişim</a>
 </nav>
 </header>
 
@@ -106,6 +113,19 @@ header.site-header { padding: 18px 24px; }
 </section>
 
 <section style="background:#0d0d0d;">
+<div class="section-inner">
+<div class="services-header reveal">
+<div class="eyebrow">Misyon &amp; Vizyon</div>
+<h2>Bizi yönlendiren amaç ve hedefler</h2>
+</div>
+<div class="mv-grid">
+<div class="mv-card reveal"><i class="fa-solid fa-bullseye"></i><h3>Misyonumuz</h3><p>Her projede işveren beklentilerini işlevsellik, estetik ve bütçe dengesiyle buluşturarak; tasarımdan uygulamaya kadar şeffaf ve güvenilir bir süreç sunmak.</p></div>
+<div class="mv-card reveal"><i class="fa-solid fa-eye"></i><h3>Vizyonumuz</h3><p>Sürdürülebilir ve yenilikçi tasarım yaklaşımıyla, İstanbul ve çevresinde tercih edilen, güvenilirliğiyle tanınan bir mimarlık ofisi olmak.</p></div>
+</div>
+</div>
+</section>
+
+<section style="background:#090909;">
 <div class="section-inner">
 <div class="services-header reveal">
 <div class="eyebrow">İlkelerimiz</div>
