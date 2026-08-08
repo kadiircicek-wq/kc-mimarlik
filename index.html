@@ -16,7 +16,10 @@
             display: flex; justify-content: space-between; align-items: center;
             padding: 22px 60px; background: rgba(13,13,13,0.55); backdrop-filter: blur(8px);
         }
-        header.site-header .logo { font-family: 'Fraunces', serif; font-size: 21px; font-weight: 600; color: #fff; letter-spacing: 1px; }
+        header.site-header .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        header.site-header .logo-badge { display: flex; align-items: center; justify-content: center; background: #fff; border-radius: 10px; padding: 5px 8px; }
+        header.site-header .logo-img { height: 40px; width: auto; display: block; }
+        header.site-header .logo-text { font-family: 'Fraunces', serif; font-size: 21px; font-weight: 600; color: #fff; letter-spacing: 1px; }
         header.site-header nav a { color: #eee; margin-left: 30px; text-decoration: none; font-size: 15px; font-weight: 500; }
         header.site-header nav a.active { color: #d4af37; }
         .eyebrow { display: flex; align-items: center; gap: 12px; font-size: 13px; letter-spacing: 3px; text-transform: uppercase; color: #d4af37; font-weight: 600; margin-bottom: 18px; }
@@ -117,7 +120,7 @@
 </head>
 <body>
     <header class="site-header">
-        <div class="logo">KC MİMARLIK</div>
+        <a href="index.html" class="logo"><span class="logo-badge"><img src="logo.png" alt="KC Mimarlık logo" class="logo-img"></span><span class="logo-text">KC MİMARLIK</span></a>
         <nav>
             <a href="index.html" class="active">Ana Sayfa</a>
             <a href="projeler.html">Projeler</a>
