@@ -43,12 +43,13 @@ section { padding: 100px 60px; }
 .card-image { position: relative; height: 220px; overflow: hidden; }
 .card-image img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s; }
 .project-card:hover .card-image img { transform: scale(1.06); }
-.category-tag { position: absolute; top: 12px; left: 12px; background-color: rgba(13,13,13,0.85); padding: 5px 12px; font-size: 10px; font-weight: 600; letter-spacing: 1px; color: #d4af37; border-radius: 3px; text-transform: uppercase; }
+.category-tag { position: absolute; top: 12px; left: 12px; background-color: rgba(13,13,13,0.85); padding: 5px 12px; font-size: 10px; font-weight: 600; letter-spacing: 1px; color: #d4af37; border-radius: 3px; text-transform: uppercase; z-index: 2; }
 .card-info { padding: 20px; }
-.card-info h3 { margin: 0 0 8px 0; font-size: 17px; font-weight: 600; font-family: 'Plus Jakarta Sans', sans-serif; color: #f5f5f5; }
-.card-meta { margin: 0 0 4px 0; font-size: 13px; color: #999; }
-.card-size { margin: 0; font-size: 13px; color: #d4af37; font-weight: 500; }
+.card-info h3 { margin: 0; font-size: 17px; font-weight: 600; font-family: 'Plus Jakarta Sans', sans-serif; color: #f5f5f5; }
 .project-card.hide { display: none; }
+.video-cover { background: linear-gradient(135deg, #1c1c1c, #0a0a0a); display: flex; align-items: center; justify-content: center; }
+.video-play-icon { font-size: 46px; color: #d4af37; transition: transform 0.4s ease; }
+.project-card:hover .video-play-icon { transform: scale(1.15); }
 .contact-footer { padding: 100px 40px 40px 40px; background: #060606; border-top: 1px solid rgba(255,255,255,0.1); }
 .contact-wrapper { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
 .contact-info h2 { font-size: 30px; margin-bottom: 20px; }
@@ -84,8 +85,8 @@ section { padding: 100px 60px; }
 <section class="page-hero">
     <div class="section-inner">
         <div class="eyebrow">Portföyümüz</div>
-        <h1>Tamamlanan Projeler</h1>
-        <p>Konuttan ticari alana, iç mekandan restorasyona kadar farklı ölçeklerde hayata geçirdiğimiz projelerden bir seçki.</p>
+        <h1>Tamamlanan ve Devam Eden Projeler</h1>
+        <p>Konuttan ticari yapıya, tadilat işlerinden apartman projelerine kadar hayata geçirdiğimiz işlerden bir seçki.</p>
     </div>
 </section>
 
@@ -96,8 +97,7 @@ section { padding: 100px 60px; }
                 <button class="filter-btn active" onclick="filterProjects('all')">TÜMÜ</button>
                 <button class="filter-btn" onclick="filterProjects('konut')">KONUT</button>
                 <button class="filter-btn" onclick="filterProjects('ticari')">TİCARİ</button>
-                <button class="filter-btn" onclick="filterProjects('ic-mimari')">İÇ MİMARİ</button>
-                <button class="filter-btn" onclick="filterProjects('restorasyon')">RESTORASYON</button>
+                <button class="filter-btn" onclick="filterProjects('restorasyon')">TADİLAT / RESTORASYON</button>
             </div>
 
             <div class="projects-grid">
@@ -105,48 +105,60 @@ section { padding: 100px 60px; }
                 <a href="dogancili-villa-sitesi.html" class="project-card" data-category="konut">
                     <div class="card-image">
                         <span class="category-tag">KONUT</span>
-                        <img src="https://picsum.photos/id/10/600/400" alt="Doğancılı Villa Sitesi">
+                        <img src="https://img1.wsimg.com/isteam/ip/4d57087d-7b11-4547-8b11-65d18bfc11d3/hhh.png" alt="Doğancılı Villa Sitesi - Şile">
                     </div>
                     <div class="card-info">
-                        <h3>Doğancılı Villa Sitesi</h3>
-                        <p class="card-meta">Bebek, İstanbul&nbsp;|&nbsp;2023</p>
-                        <p class="card-size">7.000 m²</p>
+                        <h3>Doğancılı Villa Sitesi - Şile</h3>
                     </div>
                 </a>
 
-                <a href="BURAYA_DIGER_SAYFA_LINKINI_YAZIN" target="_top" class="project-card" data-category="ticari">
+                <a href="iet-evi-yalova-cinarcik.html" class="project-card" data-category="konut">
+                    <div class="card-image">
+                        <span class="category-tag">KONUT</span>
+                        <img src="https://img1.wsimg.com/isteam/ip/4d57087d-7b11-4547-8b11-65d18bfc11d3/1-387b09e.jpg" alt="İ.E.T Evi Yalova - Çınarcık">
+                    </div>
+                    <div class="card-info">
+                        <h3>İ.E.T Evi Yalova - Çınarcık</h3>
+                    </div>
+                </a>
+
+                <a href="sd-evi.html" class="project-card" data-category="konut">
+                    <div class="card-image">
+                        <span class="category-tag">KONUT</span>
+                        <img src="https://img1.wsimg.com/isteam/ip/4d57087d-7b11-4547-8b11-65d18bfc11d3/1.jpg" alt="SD Evi">
+                    </div>
+                    <div class="card-info">
+                        <h3>SD Evi</h3>
+                    </div>
+                </a>
+
+                <a href="kocaeli-dilovasi-apartman-projesi.html" class="project-card" data-category="konut">
+                    <div class="card-image">
+                        <span class="category-tag">KONUT</span>
+                        <img src="https://img1.wsimg.com/isteam/ip/4d57087d-7b11-4547-8b11-65d18bfc11d3/%C3%B6n%C3%A7al%C4%B1%C5%9Fma1.jpg" alt="Kocaeli Dilovası Apartman Projesi">
+                    </div>
+                    <div class="card-info">
+                        <h3>Kocaeli Dilovası Apartman Projesi</h3>
+                    </div>
+                </a>
+
+                <a href="vesa-technical-ofis-fabrika-projesi.html" class="project-card" data-category="ticari">
                     <div class="card-image">
                         <span class="category-tag">TİCARİ</span>
-                        <img src="https://picsum.photos/id/20/600/400" alt="Levent Tower">
+                        <img src="https://img1.wsimg.com/isteam/ip/4d57087d-7b11-4547-8b11-65d18bfc11d3/1731673784388.jpg" alt="Vesa Technical Ofis - Fabrika Projesi">
                     </div>
                     <div class="card-info">
-                        <h3>Levent Tower</h3>
-                        <p class="card-meta">Levent, İstanbul&nbsp;|&nbsp;2022</p>
-                        <p class="card-size">18.500 m²</p>
+                        <h3>Vesa Technical Ofis - Fabrika Projesi</h3>
                     </div>
                 </a>
 
-                <a href="BURAYA_DIGER_SAYFA_LINKINI_YAZIN" target="_top" class="project-card" data-category="ic-mimari">
-                    <div class="card-image">
-                        <span class="category-tag">İÇ MİMARİ</span>
-                        <img src="https://picsum.photos/id/30/600/400" alt="Nişantaşı Penthouse">
+                <a href="hanimeli-ev-yemekleri-tadilat.html" class="project-card" data-category="restorasyon">
+                    <div class="card-image video-cover">
+                        <span class="category-tag">TADİLAT</span>
+                        <i class="fa-solid fa-circle-play video-play-icon"></i>
                     </div>
                     <div class="card-info">
-                        <h3>Nişantaşı Penthouse</h3>
-                        <p class="card-meta">Nişantaşı, İstanbul&nbsp;|&nbsp;2023</p>
-                        <p class="card-size">620 m²</p>
-                    </div>
-                </a>
-
-                <a href="BURAYA_DIGER_SAYFA_LINKINI_YAZIN" target="_top" class="project-card" data-category="restorasyon">
-                    <div class="card-image">
-                        <span class="category-tag">RESTORASYON</span>
-                        <img src="https://picsum.photos/id/40/600/400" alt="Tarihi Konak">
-                    </div>
-                    <div class="card-info">
-                        <h3>Tarihi Konak Restorasyonu</h3>
-                        <p class="card-meta">Karaköy, İstanbul&nbsp;|&nbsp;2021</p>
-                        <p class="card-size">1.200 m²</p>
+                        <h3>Hanımeli Ev Yemekleri Tadilat</h3>
                     </div>
                 </a>
 
