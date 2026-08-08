@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>İletişim | KC Mimarlık</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
+html { scroll-behavior: smooth; }
+body { width: 100%; background-color: #0d0d0d; color: #f5f5f5; overflow-x: hidden; }
+h1, h2, h3, .display { font-family: 'Fraunces', serif; font-weight: 500; }
+header.site-header { position: fixed; top: 0; left: 0; width: 100%; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 22px 60px; background: rgba(13,13,13,0.55); backdrop-filter: blur(8px); }
+header.site-header .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+header.site-header .logo-badge { width: 62px; height: 64px; overflow: hidden; position: relative; background: transparent; flex-shrink: 0; }
+header.site-header .logo-img { position: absolute; width: 127px; height: 80px; left: -33.5px; top: -5.7px; max-width: none; }
+header.site-header .logo-text { font-family: 'Fraunces', serif; font-size: 21px; font-weight: 600; color: #fff; letter-spacing: 1px; }
+header.site-header nav a { color: #eee; margin-left: 30px; text-decoration: none; font-size: 15px; font-weight: 500; }
+header.site-header nav a.active { color: #d4af37; }
+.eyebrow { display: flex; align-items: center; gap: 12px; font-size: 13px; letter-spacing: 3px; text-transform: uppercase; color: #d4af37; font-weight: 600; margin-bottom: 18px; }
+.eyebrow::before { content: ""; width: 30px; height: 1px; background: #d4af37; }
+section { padding: 100px 60px; }
+.section-inner { max-width: 1300px; margin: 0 auto; }
+.page-hero { padding: 190px 60px 60px 60px; background: #0d0d0d; text-align: center; }
+.page-hero .eyebrow { justify-content: center; }
+.page-hero .eyebrow::after { content: ""; width: 30px; height: 1px; background: #d4af37; }
+.page-hero h1 { font-size: 44px; margin-bottom: 16px; }
+.page-hero p { color: #aaa; max-width: 700px; margin: 0 auto; font-weight: 300; font-size: 16px; line-height: 1.7; }
+.form-section { background: #090909; }
+.form-wrapper { max-width: 720px; margin: 0 auto; }
+.form-wrapper .services-header { margin-bottom: 40px; }
+.contact-form { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.contact-form .full { grid-column: 1 / -1; }
+.contact-form label { display: block; font-size: 13px; color: #aaa; margin-bottom: 8px; }
+.contact-form input, .contact-form textarea { width: 100%; padding: 14px 16px; background: #131313; border: 1px solid rgba(255,255,255,0.12); border-radius: 6px; color: #f5f5f5; font-size: 15px; font-family: inherit; }
+.contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: #d4af37; }
+.contact-form textarea { resize: vertical; min-height: 140px; }
+.contact-form button { grid-column: 1 / -1; justify-self: start; margin-top: 8px; padding: 15px 38px; background: #d4af37; color: #0d0d0d; border: none; border-radius: 4px; font-size: 15px; font-weight: 600; letter-spacing: 0.5px; cursor: pointer; transition: background 0.3s, transform 0.3s; }
+.contact-form button:hover { background: #e8c34f; transform: translateY(-2px); }
+.services-header { text-align: center; max-width: 640px; margin: 0 auto 60px auto; }
+.services-header .eyebrow { justify-content: center; }
+.services-header .eyebrow::after { content: ""; width: 30px; height: 1px; background: #d4af37; }
+.services-header h2 { font-size: 32px; }
+.contact-footer { padding: 100px 40px 40px 40px; background: #060606; border-top: 1px solid rgba(255,255,255,0.1); }
+.contact-wrapper { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+.contact-info h2 { font-size: 30px; margin-bottom: 20px; }
+.contact-info p { color: #aaa; margin-bottom: 30px; line-height: 1.6; }
+.info-item { display: flex; align-items: flex-start; gap: 15px; margin-bottom: 20px; }
+.info-item i { font-size: 20px; color: #d4af37; margin-top: 4px; }
+.info-item div h4 { font-size: 15px; color: #fff; margin-bottom: 4px; }
+.info-item div p, .info-item div a { font-size: 14px; color: #aaa; text-decoration: none; transition: color 0.3s; }
+.info-item div a:hover { color: #fff; }
+.map-container { width: 100%; height: 380px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); }
+.map-container iframe { width: 100%; height: 100%; border: none; }
+.footer-bottom { max-width: 1300px; margin: 60px auto 0 auto; padding-top: 25px; border-top: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center; color: #666; font-size: 13px; flex-wrap: wrap; gap: 10px; }
+.reveal { opacity: 0; transform: translateY(36px); transition: opacity 0.8s cubic-bezier(.2,.7,.3,1), transform 0.8s cubic-bezier(.2,.7,.3,1); }
+.reveal.in-view { opacity: 1; transform: translateY(0); }
+.whatsapp-float { position: fixed; bottom: 20px; right: 20px; background: #25d366; color: #fff; width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 999; transition: transform 0.3s; }
+.whatsapp-float:hover { transform: scale(1.1); }
+@media (max-width: 968px) {
+section { padding: 70px 20px; }
+header.site-header { padding: 18px 24px; }
+.page-hero { padding: 140px 20px 40px 20px; }
+.page-hero h1 { font-size: 32px; }
+.contact-form { grid-template-columns: 1fr; }
+.contact-wrapper { grid-template-columns: 1fr; gap: 40px; }
+}
+</style>
+</head>
+<body>
+<header class="site-header">
+<a href="index.html" class="logo"><span class="logo-badge"><img src="logo.png" alt="KC Mimarlık logo" class="logo-img"></span><span class="logo-text">KC MİMARLIK</span></a>
+<nav>
+<a href="index.html">Ana Sayfa</a>
+<a href="projeler.html">Projeler</a>
+<a href="hakkimizda.html">Hakkımızda</a>
+<a href="iletisim.html" class="active">İletişim</a>
+</nav>
+</header>
+
+<section class="page-hero">
+<div class="section-inner">
+<div class="eyebrow">İletişim</div>
+<h1>Projenizi Birlikte Şekillendirelim</h1>
+<p>Sorularınızı iletmek, bir randevu planlamak veya projeniz hakkında bilgi almak için formu doldurun, size en kısa sürede dönüş yapalım.</p>
+</div>
+</section>
+
+<section class="form-section">
+<div class="section-inner form-wrapper">
+<div class="services-header reveal">
+<div class="eyebrow">Bize Yazın</div>
+<h2>Mesaj Gönderin</h2>
+</div>
+<form class="contact-form reveal" action="https://formsubmit.co/kadir@kcmimarlik.com" method="POST">
+<input type="hidden" name="_subject" value="KC Mimarlık web sitesi iletişim formu">
+<input type="hidden" name="_template" value="box">
+<div>
+<label for="name">Ad Soyad</label>
+<input type="text" id="name" name="name" placeholder="Adınız Soyadınız" required>
+</div>
+<div>
+<label for="email">E-posta</label>
+<input type="email" id="email" name="email" placeholder="ornek@eposta.com" required>
+</div>
+<div>
+<label for="phone">Telefon</label>
+<input type="tel" id="phone" name="phone" placeholder="0532 xxx xx xx">
+</div>
+<div>
+<label for="subject">Konu</label>
+<input type="text" id="subject" name="subject" placeholder="Proje türü / konu">
+</div>
+<div class="full">
+<label for="message">Mesajınız</label>
+<textarea id="message" name="message" placeholder="Projeniz hakkında kısaca bilgi verin..." required></textarea>
+</div>
+<button type="submit">Gönder</button>
+</form>
+</div>
+</section>
+
+<section class="contact-footer" id="iletisim-bilgileri">
+<div class="contact-wrapper">
+<div class="contact-info">
+<h2>İletişim Bilgileri</h2>
+<p>Projeleriniz hakkında görüşmek, sorularınızı iletmek veya ofisimizi ziyaret etmek için aşağıdaki kanallardan bize ulaşabilirsiniz.</p>
+<div class="info-item"><i class="fa-solid fa-location-dot"></i><div><h4>Ofis Adresi</h4><p>Merkez mah. Ferah sk. No:7 D:5, Çekmeköy / İstanbul</p></div></div>
+<div class="info-item"><i class="fa-solid fa-phone"></i><div><h4>Telefon</h4><p><a href="tel:05325861108">0532 586 11 08</a></p></div></div>
+<div class="info-item"><i class="fa-solid fa-envelope"></i><div><h4>E-Posta</h4><p><a href="mailto:kadir@kcmimarlik.com">kadir@kcmimarlik.com</a></p></div></div>
+<div class="info-item"><i class="fa-brands fa-whatsapp"></i><div><h4>WhatsApp Destek</h4><p><a href="https://wa.me/905325861108" target="_blank" rel="noopener">0532 586 11 08 üzerinden yazın</a></p></div></div>
+</div>
+<div class="map-container">
+<iframe src="https://www.google.com/maps?q=Cekmekoy%20KC%20Mimarlik%2C%20Merkez%20Mah.%20Ferah%20Sk.%20No%3A7%20D%3A5%20Cekmekoy%20Istanbul&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+</div>
+<div class="footer-bottom">
+<p>&copy; 2026 KC Mimarlık. Tüm hakları saklıdır.</p>
+<p>Modern Mimari & Tasarım</p>
+</div>
+</section>
+
+<a href="https://wa.me/905325861108" target="_blank" rel="noopener" class="whatsapp-float"><i class="fa-brands fa-whatsapp"></i></a>
+
+<script>
+const revealItems = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+entry.target.classList.add('in-view');
+revealObserver.unobserve(entry.target);
+}
+});
+}, { threshold: 0.15 });
+revealItems.forEach(item => revealObserver.observe(item));
+</script>
+</body>
+</html>
