@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Doğancılı Villa Sitesi | KC Mimarlık</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
+html { scroll-behavior: smooth; }
+body { width: 100%; background-color: #0d0d0d; color: #f5f5f5; overflow-x: hidden; }
+h1, h2, h3, .display { font-family: 'Fraunces', serif; font-weight: 500; }
+header.site-header {
+    position: fixed; top: 0; left: 0; width: 100%; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 22px 60px; background: rgba(13,13,13,0.55); backdrop-filter: blur(8px);
+}
+header.site-header .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+header.site-header .logo-badge { width: 62px; height: 64px; overflow: hidden; position: relative; background: transparent; flex-shrink: 0; }
+header.site-header .logo-img { position: absolute; width: 127px; height: 80px; left: -33.5px; top: -5.7px; max-width: none; }
+header.site-header .logo-text { font-family: 'Fraunces', serif; font-size: 21px; font-weight: 600; color: #fff; letter-spacing: 1px; }
+header.site-header nav a { color: #eee; margin-left: 30px; text-decoration: none; font-size: 15px; font-weight: 500; }
+header.site-header nav a.active { color: #d4af37; }
+.eyebrow { display: flex; align-items: center; gap: 12px; font-size: 13px; letter-spacing: 3px; text-transform: uppercase; color: #d4af37; font-weight: 600; margin-bottom: 18px; }
+.eyebrow::before { content: ""; width: 30px; height: 1px; background: #d4af37; }
+section { padding: 100px 60px; }
+.section-inner { max-width: 1300px; margin: 0 auto; }
+
+.breadcrumb { padding: 150px 60px 0 60px; font-size: 13px; color: #888; }
+.breadcrumb a { color: #888; text-decoration: none; }
+.breadcrumb a:hover { color: #d4af37; }
+.breadcrumb span { color: #d4af37; }
+
+.project-title-block { padding: 30px 60px 50px 60px; }
+.project-title-block h1 { font-size: 42px; margin-bottom: 18px; }
+.back-link { display: inline-flex; align-items: center; gap: 8px; color: #d4af37; text-decoration: none; font-size: 14px; font-weight: 600; margin-bottom: 20px; }
+.back-link:hover { color: #fff; }
+
+.project-cover { width: 100%; height: 520px; overflow: hidden; padding: 0 60px; }
+.project-cover img { width: 100%; height: 100%; object-fit: cover; border-radius: 6px; }
+
+.project-info-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; background: #090909; border-top: 1px solid rgba(255,255,255,0.08); border-bottom: 1px solid rgba(255,255,255,0.08); padding: 40px 60px; }
+.project-info-bar div h4 { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: #888; margin-bottom: 8px; font-weight: 600; }
+.project-info-bar div p { font-size: 17px; color: #f5f5f5; font-family: 'Fraunces', serif; }
+
+.project-description { max-width: 900px; }
+.project-description p { color: #aaa; line-height: 1.9; font-size: 16px; margin-bottom: 20px; }
+
+.project-gallery-section { background: #090909; }
+.gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.gallery-grid img { width: 100%; height: 280px; object-fit: cover; border-radius: 6px; transition: transform 0.4s ease; }
+.gallery-grid a { display: block; overflow: hidden; border-radius: 6px; }
+.gallery-grid a:hover img { transform: scale(1.06); }
+
+.contact-footer { padding: 100px 40px 40px 40px; background: #060606; border-top: 1px solid rgba(255,255,255,0.1); }
+.contact-wrapper { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+.contact-info h2 { font-size: 30px; margin-bottom: 20px; }
+.contact-info p { color: #aaa; margin-bottom: 30px; line-height: 1.6; }
+.info-item { display: flex; align-items: flex-start; gap: 15px; margin-bottom: 20px; }
+.info-item i { font-size: 20px; color: #d4af37; margin-top: 4px; }
+.info-item div h4 { font-size: 15px; color: #fff; margin-bottom: 4px; }
+.info-item div p, .info-item div a { font-size: 14px; color: #aaa; text-decoration: none; transition: color 0.3s; }
+.info-item div a:hover { color: #fff; }
+.map-container { width: 100%; height: 380px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); }
+.map-container iframe { width: 100%; height: 100%; border: none; }
+.footer-bottom { max-width: 1300px; margin: 60px auto 0 auto; padding-top: 25px; border-top: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center; color: #666; font-size: 13px; flex-wrap: wrap; gap: 10px; }
+.whatsapp-float { position: fixed; bottom: 20px; right: 20px; background: #25d366; color: #fff; width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 999; transition: transform 0.3s; }
+.whatsapp-float:hover { transform: scale(1.1); }
+
+@media (max-width: 968px) {
+    section { padding: 70px 20px; }
+    header.site-header { padding: 18px 24px; }
+    .breadcrumb { padding: 120px 20px 0 20px; }
+    .project-title-block { padding: 20px 20px 30px 20px; }
+    .project-title-block h1 { font-size: 30px; }
+    .project-cover { padding: 0 20px; height: 280px; }
+    .project-info-bar { grid-template-columns: repeat(2, 1fr); padding: 30px 20px; }
+    .gallery-grid { grid-template-columns: 1fr; }
+    .contact-wrapper { grid-template-columns: 1fr; gap: 40px; }
+}
+</style>
+</head>
+<body>
+<header class="site-header">
+    <a href="index.html" class="logo"><span class="logo-badge"><img src="logo.png" alt="KC Mimarlık logo" class="logo-img"></span><span class="logo-text">KC MİMARLIK</span></a>
+    <nav>
+        <a href="index.html">Ana Sayfa</a>
+        <a href="projeler.html" class="active">Projeler</a>
+    </nav>
+</header>
+
+<div class="breadcrumb">
+    <a href="index.html">Ana Sayfa</a> / <a href="projeler.html">Projeler</a> / <span>Doğancılı Villa Sitesi</span>
+</div>
+
+<div class="project-title-block">
+    <a href="projeler.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Tüm Projelere Dön</a>
+    <div class="eyebrow">Konut Projesi</div>
+    <h1>Doğancılı Villa Sitesi</h1>
+</div>
+
+<div class="project-cover">
+    <img src="https://picsum.photos/id/10/1600/700" alt="Doğancılı Villa Sitesi kapak görseli">
+</div>
+
+<div class="project-info-bar">
+    <div><h4>Konum</h4><p>Bebek, İstanbul</p></div>
+    <div><h4>Yıl</h4><p>2023</p></div>
+    <div><h4>Alan</h4><p>7.000 m²</p></div>
+    <div><h4>Kategori</h4><p>Konut</p></div>
+</div>
+
+<section>
+    <div class="section-inner project-description">
+        <div class="eyebrow">Proje Hakkında</div>
+        <h2 style="font-size:30px; margin-bottom:24px;">Doğa ile İç İçe Modern Yaşam</h2>
+        <p>Boğaz manzarasına hakim eğimli bir arazi üzerine konumlanan Doğancılı Villa Sitesi, doğal topografyayı koruyarak tasarlanan çok bloklu bir konut projesidir. Her bir villa, geniş cam cepheler ve teraslar aracılığıyla iç ve dış mekan arasındaki sınırı ortadan kaldıracak şekilde kurgulanmıştır.</p>
+        <p>Malzeme seçiminde doğal taş, ahşap kaplamalar ve mat metal detaylar bir araya getirilerek hem modern hem de çevresiyle uyumlu bir mimari dil oluşturulmuştur. Peyzaj tasarımı, sitenin ortak alanlarında yürüyüş yolları, özel havuz ve dinlenme bölgeleriyle desteklenmiştir.</p>
+        <p>Bu içerik ve görseller örnek/yer tutucu olarak eklenmiştir; proje hakkındaki gerçek bilgiler ve fotoğraflar iletildiğinde bu bölüm güncellenecektir.</p>
+    </div>
+</section>
+
+<section class="project-gallery-section">
+    <div class="section-inner">
+        <div class="eyebrow">Galeri</div>
+        <h2 style="font-size:30px; margin-bottom:40px;">Proje Görselleri</h2>
+        <div class="gallery-grid">
+            <a href="https://picsum.photos/id/11/1200/900" target="_blank" rel="noopener"><img src="https://picsum.photos/id/11/600/450" alt="Doğancılı Villa Sitesi görsel 1"></a>
+            <a href="https://picsum.photos/id/12/1200/900" target="_blank" rel="noopener"><img src="https://picsum.photos/id/12/600/450" alt="Doğancılı Villa Sitesi görsel 2"></a>
+            <a href="https://picsum.photos/id/13/1200/900" target="_blank" rel="noopener"><img src="https://picsum.photos/id/13/600/450" alt="Doğancılı Villa Sitesi görsel 3"></a>
+            <a href="https://picsum.photos/id/14/1200/900" target="_blank" rel="noopener"><img src="https://picsum.photos/id/14/600/450" alt="Doğancılı Villa Sitesi görsel 4"></a>
+            <a href="https://picsum.photos/id/15/1200/900" target="_blank" rel="noopener"><img src="https://picsum.photos/id/15/600/450" alt="Doğancılı Villa Sitesi görsel 5"></a>
+            <a href="https://picsum.photos/id/16/1200/900" target="_blank" rel="noopener"><img src="https://picsum.photos/id/16/600/450" alt="Doğancılı Villa Sitesi görsel 6"></a>
+        </div>
+    </div>
+</section>
+
+<section class="contact-footer" id="iletisim">
+    <div class="contact-wrapper">
+        <div class="contact-info">
+            <h2>İletişim Bilgileri</h2>
+            <p>Projeleriniz hakkında görüşmek, sorularınızı iletmek veya ofisimizi ziyaret etmek için aşağıdaki kanallardan bize ulaşabilirsiniz.</p>
+            <div class="info-item"><i class="fa-solid fa-location-dot"></i><div><h4>Ofis Adresi</h4><p>Merkez mah. Ferah sk. No:7 D:5, Çekmeköy / İstanbul</p></div></div>
+            <div class="info-item"><i class="fa-solid fa-phone"></i><div><h4>Telefon</h4><p><a href="tel:05325861108">0532 586 11 08</a></p></div></div>
+            <div class="info-item"><i class="fa-solid fa-envelope"></i><div><h4>E-Posta</h4><p><a href="mailto:kadir@kcmimarlik.com">kadir@kcmimarlik.com</a></p></div></div>
+            <div class="info-item"><i class="fa-brands fa-whatsapp"></i><div><h4>WhatsApp Destek</h4><p><a href="https://wa.me/905325861108" target="_blank" rel="noopener">0532 586 11 08 üzerinden yazın</a></p></div></div>
+        </div>
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps?q=Cekmekoy%20KC%20Mimarlik%2C%20Merkez%20Mah.%20Ferah%20Sk.%20No%3A7%20D%3A5%20Cekmekoy%20Istanbul&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 KC Mimarlık. Tüm hakları saklıdır.</p>
+        <p>Modern Mimari & Tasarım</p>
+    </div>
+</section>
+
+<a href="https://wa.me/905325861108" target="_blank" rel="noopener" class="whatsapp-float"><i class="fa-brands fa-whatsapp"></i></a>
+</body>
+</html>
