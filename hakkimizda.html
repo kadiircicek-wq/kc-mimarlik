@@ -27,7 +27,6 @@ section { padding: 100px 60px; }
 .page-hero .eyebrow::after { content: ""; width: 30px; height: 1px; background: #d4af37; }
 .page-hero h1 { font-size: 44px; margin-bottom: 16px; }
 .page-hero p { color: #aaa; max-width: 700px; margin: 0 auto; font-weight: 300; font-size: 16px; line-height: 1.7; }
-.note-badge { display: inline-block; margin-top: 22px; padding: 8px 16px; border: 1px solid rgba(212,175,55,0.4); border-radius: 4px; color: #d4af37; font-size: 12px; letter-spacing: 0.5px; }
 .about-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center; }
 .about-images { position: relative; height: 480px; }
 .about-images img { position: absolute; border-radius: 6px; object-fit: cover; }
@@ -45,16 +44,6 @@ section { padding: 100px 60px; }
 .value-card i { font-size: 26px; color: #d4af37; margin-bottom: 18px; display: block; }
 .value-card h3 { font-size: 17px; font-weight: 600; margin-bottom: 10px; }
 .value-card p { font-size: 14px; color: #999; line-height: 1.7; }
-.team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-.team-card { background: #131313; border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; padding: 34px 24px; text-align: center; }
-.team-card img { width: 88px; height: 88px; border-radius: 50%; object-fit: cover; margin-bottom: 18px; }
-.team-card h3 { font-size: 18px; margin-bottom: 6px; }
-.team-card p { font-size: 13px; color: #999; }
-.timeline { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
-.timeline-item { border-top: 1px solid rgba(255,255,255,0.15); padding-top: 20px; }
-.timeline-item .num { font-family: 'Fraunces', serif; font-size: 26px; color: #d4af37; display: block; margin-bottom: 12px; }
-.timeline-item h4 { font-size: 15px; font-weight: 600; margin-bottom: 8px; }
-.timeline-item p { font-size: 13px; color: #888; line-height: 1.6; }
 .contact-footer { padding: 100px 40px 40px 40px; background: #060606; border-top: 1px solid rgba(255,255,255,0.1); }
 .contact-wrapper { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
 .contact-info h2 { font-size: 30px; margin-bottom: 20px; }
@@ -79,8 +68,6 @@ header.site-header { padding: 18px 24px; }
 .about-wrapper { grid-template-columns: 1fr; gap: 40px; }
 .about-images { height: 340px; }
 .values-grid { grid-template-columns: 1fr 1fr; }
-.team-grid { grid-template-columns: 1fr; }
-.timeline { grid-template-columns: 1fr 1fr; }
 .contact-wrapper { grid-template-columns: 1fr; gap: 40px; }
 }
 </style>
@@ -99,8 +86,7 @@ header.site-header { padding: 18px 24px; }
 <div class="section-inner">
 <div class="eyebrow">Hakkımızda</div>
 <h1>Mekânı Anlayan, Değeri Tasarlayan Bir Ekip</h1>
-<p>(Örnek/taslak metindir) KC Mimarlık; konut, ticari alan ve restorasyon projelerinde tasarımdan uygulamaya uzanan bütüncül bir hizmet sunar. Bu sayfadaki tüm bilgiler geçici içerik olup sizin düzeltmelerinizle güncellenecektir.</p>
-<span class="note-badge">Bu sayfa taslak içerik ile hazırlanmıştır</span>
+<p>KC Mimarlık; konut, ticari alan ve restorasyon projelerinde tasarımdan uygulamaya uzanan bütüncül bir hizmet sunar.</p>
 </div>
 </section>
 
@@ -113,8 +99,8 @@ header.site-header { padding: 18px 24px; }
 <div class="about-text reveal">
 <div class="eyebrow">Hikayemiz</div>
 <h2>Küçük bir çizim masasından bütüncül bir tasarım ofisine</h2>
-<p>(Örnek metin) KC Mimarlık, Çekmeköy'de kurulan mütevazı bir ofisten bugünün çok disiplinli tasarım ekibine uzanan bir yolculuğun ürünüdür. Yıllar içinde edindiğimiz deneyimi; kullanıcı odaklı, sürdürülebilir ve estetik kaygısı yüksek bir tasarım diline dönüştürdük.</p>
-<p>(Örnek metin) Bugün ekibimiz mimarlardan iç mimarlara, proje yöneticilerinden görselleştirme uzmanlarına kadar geniş bir yelpazede uzmanlık barındırıyor ve her projeye aynı titizlikle yaklaşıyoruz.</p>
+<p>KC Mimarlık, Çekmeköy'de kurulan mütevazı bir ofisten bugünün çok disiplinli tasarım ekibine uzanan bir yolculuğun ürünüdür. Yıllar içinde edindiğimiz deneyimi; kullanıcı odaklı, sürdürülebilir ve estetik kaygısı yüksek bir tasarım diline dönüştürdük.</p>
+<p>Bugün ekibimiz mimarlardan iç mimarlara, proje yöneticilerinden görselleştirme uzmanlarına kadar geniş bir yelpazede uzmanlık barındırıyor ve her projeye aynı titizlikle yaklaşıyoruz.</p>
 </div>
 </div>
 </section>
@@ -126,39 +112,10 @@ header.site-header { padding: 18px 24px; }
 <h2>Bizi biz yapan değerler</h2>
 </div>
 <div class="values-grid">
-<div class="value-card reveal"><i class="fa-solid fa-lightbulb"></i><h3>Yenilikçilik</h3><p>(Örnek metin) Güncel teknolojileri özgün tasarım fikirleriyle birleştiririz.</p></div>
-<div class="value-card reveal"><i class="fa-solid fa-leaf"></i><h3>Sürdürülebilirlik</h3><p>(Örnek metin) Malzeme ve enerji verimliliğine duyarlı çözümleri önceliklendiririz.</p></div>
-<div class="value-card reveal"><i class="fa-solid fa-handshake"></i><h3>Şeffaflık</h3><p>(Örnek metin) Bütçe ve takvim konusunda süreç boyunca açık iletişim kurarız.</p></div>
-<div class="value-card reveal"><i class="fa-solid fa-award"></i><h3>Kalite</h3><p>(Örnek metin) Uygulama ve malzemede taviz vermeden kalıcı işler üretiriz.</p></div>
-</div>
-</div>
-</section>
-
-<section style="background:#090909;">
-<div class="section-inner">
-<div class="services-header reveal">
-<div class="eyebrow">Ekibimiz</div>
-<h2>Projelerinizin arkasındaki isimler</h2>
-</div>
-<div class="team-grid">
-<div class="team-card reveal"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=300&q=80" alt="Kurucu Mimar"><h3>Kadir Çiçek</h3><p>Kurucu Mimar (örnek metin)</p></div>
-<div class="team-card reveal"><img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=300&q=80" alt="Proje Yöneticisi"><h3>Ayşe Yılmaz</h3><p>Proje Yöneticisi (örnek metin)</p></div>
-<div class="team-card reveal"><img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=300&q=80" alt="İç Mimar"><h3>Mehmet Demir</h3><p>İç Mimar (örnek metin)</p></div>
-</div>
-</div>
-</section>
-
-<section style="background:#0d0d0d;">
-<div class="section-inner">
-<div class="services-header reveal">
-<div class="eyebrow">Tarihçemiz</div>
-<h2>Yolculuğumuzdan kilometre taşları</h2>
-</div>
-<div class="timeline">
-<div class="timeline-item reveal"><span class="num">01</span><h4>Kuruluş (örnek yıl)</h4><p>Çekmeköy'de küçük bir ofis olarak faaliyete başladık.</p></div>
-<div class="timeline-item reveal"><span class="num">02</span><h4>İlk Büyük Proje</h4><p>İlk konut projemizle bölgede tanınırlık kazandık.</p></div>
-<div class="timeline-item reveal"><span class="num">03</span><h4>Ekip Büyümesi</h4><p>İç mimari ve proje yönetimi alanlarında ekibimizi güçlendirdik.</p></div>
-<div class="timeline-item reveal"><span class="num">04</span><h4>Bugün</h4><p>İstanbul genelinde konut ve ticari projelerde hizmet veriyoruz.</p></div>
+<div class="value-card reveal"><i class="fa-solid fa-lightbulb"></i><h3>Yenilikçilik</h3><p>Güncel teknolojileri özgün tasarım fikirleriyle birleştiririz.</p></div>
+<div class="value-card reveal"><i class="fa-solid fa-leaf"></i><h3>Sürdürülebilirlik</h3><p>Malzeme ve enerji verimliliğine duyarlı çözümleri önceliklendiririz.</p></div>
+<div class="value-card reveal"><i class="fa-solid fa-handshake"></i><h3>Şeffaflık</h3><p>Bütçe ve takvim konusunda süreç boyunca açık iletişim kurarız.</p></div>
+<div class="value-card reveal"><i class="fa-solid fa-award"></i><h3>Kalite</h3><p>Uygulama ve malzemede taviz vermeden kalıcı işler üretiriz.</p></div>
 </div>
 </div>
 </section>
