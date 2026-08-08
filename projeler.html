@@ -1,191 +1,181 @@
-<div class="projects-wrapper">
-    <!-- FİLTRE BUTONLARI -->
-    <div class="filter-buttons">
-        <button class="filter-btn active" onclick="filterProjects('all')">TÜMÜ</button>
-        <button class="filter-btn" onclick="filterProjects('konut')">KONUT</button>
-        <button class="filter-btn" onclick="filterProjects('ticari')">TİCARİ</button>
-        <button class="filter-btn" onclick="filterProjects('ic-mimari')">İÇ MİMARİ</button>
-        <button class="filter-btn" onclick="filterProjects('restorasyon')">RESTORASYON</button>
-    </div>
-
-    <!-- PROJE KARTI IZGARASI -->
-    <div class="projects-grid">
-        
-        <!-- PROJE 1 (Konut) -->
-        <a href="https://sites.google.com/view/kcmimarlik/projeler/konut-projeleri/do%C4%9Fancili-villa-sitesi" target="_top" class="project-card" data-category="konut">
-            <div class="card-image">
-                <span class="category-tag">KONUT</span>
-                <img src="https://picsum.photos/id/10/600/400" alt="Doğancılı Villa Sitesi">
-            </div>
-            <div class="card-info">
-                <h3>Doğancılı Villa Sitesi</h3>
-                <p class="card-meta">Bebek, İstanbul &nbsp;|&nbsp; 2023</p>
-                <p class="card-size">7.000 m²</p>
-            </div>
-        </a>
-
-        <!-- PROJE 2 (Ticari) -->
-        <a href="BURAYA_DIGER_SAYFA_LINKINI_YAZIN" target="_top" class="project-card" data-category="ticari">
-            <div class="card-image">
-                <span class="category-tag">TİCARİ</span>
-                <img src="https://picsum.photos/id/20/600/400" alt="Levent Tower">
-            </div>
-            <div class="card-info">
-                <h3>Levent Tower</h3>
-                <p class="card-meta">Levent, İstanbul &nbsp;|&nbsp; 2022</p>
-                <p class="card-size">18.500 m²</p>
-            </div>
-        </a>
-
-        <!-- PROJE 3 (İç Mimari) -->
-        <a href="BURAYA_DIGER_SAYFA_LINKINI_YAZIN" target="_top" class="project-card" data-category="ic-mimari">
-            <div class="card-image">
-                <span class="category-tag">İÇ MİMARİ</span>
-                <img src="https://picsum.photos/id/30/600/400" alt="Nişantaşı Penthouse">
-            </div>
-            <div class="card-info">
-                <h3>Nişantaşı Penthouse</h3>
-                <p class="card-meta">Nişantaşı, İstanbul &nbsp;|&nbsp; 2023</p>
-                <p class="card-size">620 m²</p>
-            </div>
-        </a>
-
-        <!-- PROJE 4 (Restorasyon) -->
-        <a href="BURAYA_DIGER_SAYFA_LINKINI_YAZIN" target="_top" class="project-card" data-category="restorasyon">
-            <div class="card-image">
-                <span class="category-tag">RESTORASYON</span>
-                <img src="https://picsum.photos/id/40/600/400" alt="Tarihi Konak">
-            </div>
-            <div class="card-info">
-                <h3>Tarihi Konak Restorasyonu</h3>
-                <p class="card-meta">Karaköy, İstanbul &nbsp;|&nbsp; 2021</p>
-                <p class="card-size">1.200 m²</p>
-            </div>
-        </a>
-
-    </div>
-</div>
-
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projeler | KC Mimarlık</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
-.projects-wrapper {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    width: 100%;
-    box-sizing: border-box;
-    padding: 10px 0;
-    background-color: transparent;
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
+html { scroll-behavior: smooth; }
+body { width: 100%; background-color: #0d0d0d; color: #f5f5f5; overflow-x: hidden; }
+h1, h2, h3, .display { font-family: 'Fraunces', serif; font-weight: 500; }
+header.site-header {
+    position: fixed; top: 0; left: 0; width: 100%; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 22px 60px; background: rgba(13,13,13,0.55); backdrop-filter: blur(8px);
 }
-
-/* Filtre Butonları Tasarımı */
-.filter-buttons {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin-bottom: 30px;
-    border-bottom: 1px solid #e3decb;
-    padding-bottom: 20px;
-}
-
-.filter-btn {
-    background: transparent;
-    border: none;
-    font-family: inherit;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    color: #8c8275;
-    cursor: pointer;
-    padding: 8px 16px;
-    border-radius: 4px;
-    transition: all 0.3s ease;
-}
-
-.filter-btn:hover {
-    color: #1a1a1a;
-}
-
-.filter-btn.active {
-    background-color: #8c8275;
-    color: #ffffff;
-}
-
-/* Proje Grid Yapısı */
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 25px;
-}
-
-/* Kartların Link Özelliği ve Görünümü */
-.project-card {
-    background: #ffffff;
-    border-radius: 6px;
-    overflow: hidden;
-    border: 1px solid #eadecb;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-    text-decoration: none;
-    display: block;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.project-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 6px 16px rgba(0,0,0,0.08);
-}
-
-.card-image {
-    position: relative;
-    height: 220px;
-}
-
-.card-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-.category-tag {
-    position: absolute;
-    top: 12px;
-    left: 12px;
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 4px 10px;
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    color: #1a1a1a;
-    border-radius: 3px;
-}
-
-.card-info {
-    padding: 20px;
-}
-
-.card-info h3 {
-    margin: 0 0 8px 0;
-    font-size: 16px;
-    font-weight: 600;
-    color: #1a1a1a;
-}
-
-.card-meta {
-    margin: 0 0 4px 0;
-    font-size: 13px;
-    color: #6b6357;
-}
-
-.card-size {
-    margin: 0;
-    font-size: 13px;
-    color: #8c8275;
-    font-weight: 500;
-}
-
-.project-card.hide {
-    display: none;
+header.site-header .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+header.site-header .logo-badge { width: 62px; height: 64px; overflow: hidden; position: relative; background: transparent; flex-shrink: 0; }
+header.site-header .logo-img { position: absolute; width: 127px; height: 80px; left: -33.5px; top: -5.7px; max-width: none; }
+header.site-header .logo-text { font-family: 'Fraunces', serif; font-size: 21px; font-weight: 600; color: #fff; letter-spacing: 1px; }
+header.site-header nav a { color: #eee; margin-left: 30px; text-decoration: none; font-size: 15px; font-weight: 500; }
+header.site-header nav a.active { color: #d4af37; }
+.eyebrow { display: flex; align-items: center; gap: 12px; font-size: 13px; letter-spacing: 3px; text-transform: uppercase; color: #d4af37; font-weight: 600; margin-bottom: 18px; }
+.eyebrow::before { content: ""; width: 30px; height: 1px; background: #d4af37; }
+section { padding: 100px 60px; }
+.section-inner { max-width: 1300px; margin: 0 auto; }
+.page-hero { padding: 190px 60px 60px 60px; background: #0d0d0d; text-align: center; }
+.page-hero .eyebrow { justify-content: center; }
+.page-hero .eyebrow::after { content: ""; width: 30px; height: 1px; background: #d4af37; }
+.page-hero h1 { font-size: 44px; margin-bottom: 16px; }
+.page-hero p { color: #aaa; max-width: 620px; margin: 0 auto; font-weight: 300; font-size: 16px; line-height: 1.7; }
+.projects-page { background: #090909; padding-top: 20px; }
+.projects-wrapper { width: 100%; }
+.filter-buttons { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; margin-bottom: 50px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 30px; }
+.filter-btn { background: transparent; border: 1px solid rgba(255,255,255,0.15); font-family: inherit; font-size: 13px; font-weight: 600; letter-spacing: 1px; color: #aaa; cursor: pointer; padding: 9px 18px; border-radius: 4px; transition: all 0.3s ease; }
+.filter-btn:hover { color: #fff; border-color: #d4af37; }
+.filter-btn.active { background-color: #d4af37; color: #0d0d0d; border-color: #d4af37; }
+.projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 25px; }
+.project-card { background: #131313; border-radius: 6px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 4px 14px rgba(0,0,0,0.3); text-decoration: none; display: block; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.project-card:hover { transform: translateY(-6px); box-shadow: 0 10px 25px rgba(0,0,0,0.45); }
+.card-image { position: relative; height: 220px; overflow: hidden; }
+.card-image img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s; }
+.project-card:hover .card-image img { transform: scale(1.06); }
+.category-tag { position: absolute; top: 12px; left: 12px; background-color: rgba(13,13,13,0.85); padding: 5px 12px; font-size: 10px; font-weight: 600; letter-spacing: 1px; color: #d4af37; border-radius: 3px; text-transform: uppercase; }
+.card-info { padding: 20px; }
+.card-info h3 { margin: 0 0 8px 0; font-size: 17px; font-weight: 600; font-family: 'Plus Jakarta Sans', sans-serif; color: #f5f5f5; }
+.card-meta { margin: 0 0 4px 0; font-size: 13px; color: #999; }
+.card-size { margin: 0; font-size: 13px; color: #d4af37; font-weight: 500; }
+.project-card.hide { display: none; }
+.contact-footer { padding: 100px 40px 40px 40px; background: #060606; border-top: 1px solid rgba(255,255,255,0.1); }
+.contact-wrapper { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+.contact-info h2 { font-size: 30px; margin-bottom: 20px; }
+.contact-info p { color: #aaa; margin-bottom: 30px; line-height: 1.6; }
+.info-item { display: flex; align-items: flex-start; gap: 15px; margin-bottom: 20px; }
+.info-item i { font-size: 20px; color: #d4af37; margin-top: 4px; }
+.info-item div h4 { font-size: 15px; color: #fff; margin-bottom: 4px; }
+.info-item div p, .info-item div a { font-size: 14px; color: #aaa; text-decoration: none; transition: color 0.3s; }
+.info-item div a:hover { color: #fff; }
+.map-container { width: 100%; height: 380px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); }
+.map-container iframe { width: 100%; height: 100%; border: none; }
+.footer-bottom { max-width: 1300px; margin: 60px auto 0 auto; padding-top: 25px; border-top: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center; color: #666; font-size: 13px; flex-wrap: wrap; gap: 10px; }
+.whatsapp-float { position: fixed; bottom: 20px; right: 20px; background: #25d366; color: #fff; width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 999; transition: transform 0.3s; }
+.whatsapp-float:hover { transform: scale(1.1); }
+@media (max-width: 968px) {
+    section { padding: 70px 20px; }
+    header.site-header { padding: 18px 24px; }
+    .page-hero { padding: 140px 20px 40px 20px; }
+    .page-hero h1 { font-size: 32px; }
+    .contact-wrapper { grid-template-columns: 1fr; gap: 40px; }
 }
 </style>
+</head>
+<body>
+<header class="site-header">
+    <a href="index.html" class="logo"><span class="logo-badge"><img src="logo.png" alt="KC Mimarlık logo" class="logo-img"></span><span class="logo-text">KC MİMARLIK</span></a>
+    <nav>
+        <a href="index.html">Ana Sayfa</a>
+        <a href="projeler.html" class="active">Projeler</a>
+    </nav>
+</header>
+
+<section class="page-hero">
+    <div class="section-inner">
+        <div class="eyebrow">Portföyümüz</div>
+        <h1>Tamamlanan Projeler</h1>
+        <p>Konuttan ticari alana, iç mekandan restorasyona kadar farklı ölçeklerde hayata geçirdiğimiz projelerden bir seçki.</p>
+    </div>
+</section>
+
+<section class="projects-page">
+    <div class="section-inner">
+        <div class="projects-wrapper">
+            <div class="filter-buttons">
+                <button class="filter-btn active" onclick="filterProjects('all')">TÜMÜ</button>
+                <button class="filter-btn" onclick="filterProjects('konut')">KONUT</button>
+                <button class="filter-btn" onclick="filterProjects('ticari')">TİCARİ</button>
+                <button class="filter-btn" onclick="filterProjects('ic-mimari')">İÇ MİMARİ</button>
+                <button class="filter-btn" onclick="filterProjects('restorasyon')">RESTORASYON</button>
+            </div>
+
+            <div class="projects-grid">
+
+                <a href="https://sites.google.com/view/kcmimarlik/projeler/konut-projeleri/do%C4%9Fancili-villa-sitesi" target="_top" class="project-card" data-category="konut">
+                    <div class="card-image">
+                        <span class="category-tag">KONUT</span>
+                        <img src="https://picsum.photos/id/10/600/400" alt="Doğancılı Villa Sitesi">
+                    </div>
+                    <div class="card-info">
+                        <h3>Doğancılı Villa Sitesi</h3>
+                        <p class="card-meta">Bebek, İstanbul&nbsp;|&nbsp;2023</p>
+                        <p class="card-size">7.000 m²</p>
+                    </div>
+                </a>
+
+                <a href="BURAYA_DIGER_SAYFA_LINKINI_YAZIN" target="_top" class="project-card" data-category="ticari">
+                    <div class="card-image">
+                        <span class="category-tag">TİCARİ</span>
+                        <img src="https://picsum.photos/id/20/600/400" alt="Levent Tower">
+                    </div>
+                    <div class="card-info">
+                        <h3>Levent Tower</h3>
+                        <p class="card-meta">Levent, İstanbul&nbsp;|&nbsp;2022</p>
+                        <p class="card-size">18.500 m²</p>
+                    </div>
+                </a>
+
+                <a href="BURAYA_DIGER_SAYFA_LINKINI_YAZIN" target="_top" class="project-card" data-category="ic-mimari">
+                    <div class="card-image">
+                        <span class="category-tag">İÇ MİMARİ</span>
+                        <img src="https://picsum.photos/id/30/600/400" alt="Nişantaşı Penthouse">
+                    </div>
+                    <div class="card-info">
+                        <h3>Nişantaşı Penthouse</h3>
+                        <p class="card-meta">Nişantaşı, İstanbul&nbsp;|&nbsp;2023</p>
+                        <p class="card-size">620 m²</p>
+                    </div>
+                </a>
+
+                <a href="BURAYA_DIGER_SAYFA_LINKINI_YAZIN" target="_top" class="project-card" data-category="restorasyon">
+                    <div class="card-image">
+                        <span class="category-tag">RESTORASYON</span>
+                        <img src="https://picsum.photos/id/40/600/400" alt="Tarihi Konak">
+                    </div>
+                    <div class="card-info">
+                        <h3>Tarihi Konak Restorasyonu</h3>
+                        <p class="card-meta">Karaköy, İstanbul&nbsp;|&nbsp;2021</p>
+                        <p class="card-size">1.200 m²</p>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="contact-footer" id="iletisim">
+    <div class="contact-wrapper">
+        <div class="contact-info">
+            <h2>İletişim Bilgileri</h2>
+            <p>Projeleriniz hakkında görüşmek, sorularınızı iletmek veya ofisimizi ziyaret etmek için aşağıdaki kanallardan bize ulaşabilirsiniz.</p>
+            <div class="info-item"><i class="fa-solid fa-location-dot"></i><div><h4>Ofis Adresi</h4><p>Merkez mah. Ferah sk. No:7 D:5, Çekmeköy / İstanbul</p></div></div>
+            <div class="info-item"><i class="fa-solid fa-phone"></i><div><h4>Telefon</h4><p><a href="tel:05325861108">0532 586 11 08</a></p></div></div>
+            <div class="info-item"><i class="fa-solid fa-envelope"></i><div><h4>E-Posta</h4><p><a href="mailto:kadir@kcmimarlik.com">kadir@kcmimarlik.com</a></p></div></div>
+            <div class="info-item"><i class="fa-brands fa-whatsapp"></i><div><h4>WhatsApp Destek</h4><p><a href="https://wa.me/905325861108" target="_blank" rel="noopener">0532 586 11 08 üzerinden yazın</a></p></div></div>
+        </div>
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps?q=Cekmekoy%20KC%20Mimarlik%2C%20Merkez%20Mah.%20Ferah%20Sk.%20No%3A7%20D%3A5%20Cekmekoy%20Istanbul&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 KC Mimarlık. Tüm hakları saklıdır.</p>
+        <p>Modern Mimari & Tasarım</p>
+    </div>
+</section>
+
+<a href="https://wa.me/905325861108" target="_blank" rel="noopener" class="whatsapp-float"><i class="fa-brands fa-whatsapp"></i></a>
 
 <script>
 function filterProjects(category) {
@@ -203,3 +193,5 @@ function filterProjects(category) {
     });
 }
 </script>
+</body>
+</html>
