@@ -43,7 +43,8 @@ section { padding: 100px 60px; }
 .project-cover { width: 100%; height: 520px; overflow: hidden; padding: 0 60px; }
 .project-cover img { width: 100%; height: 100%; object-fit: cover; border-radius: 6px; }
 .project-cover.video-embed iframe { width: 100%; height: 100%; border-radius: 6px; }
-.project-cover.video-embed video { width: 100%; height: 100%; border-radius: 6px; object-fit: cover; background: #000; }
+.project-cover.video-embed { display: flex; align-items: center; justify-content: center; background: #000; border-radius: 6px; }
+  .project-cover.video-embed video { width: auto; height: 100%; max-width: 100%; border-radius: 6px; object-fit: contain; background: #000; }
 .project-gallery-section { background: #090909; }
 .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .gallery-grid img { width: 100%; height: 280px; object-fit: cover; border-radius: 6px; transition: transform 0.4s ease; }
