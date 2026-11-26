@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="favicon-black.png">
+
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
+html { scroll-behavior: smooth; }
+body { width: 100%; background-color: #0d0d0d; color: #f5f5f5; overflow-x: hidden; }
+h1, h2, h3, .display { font-family: 'Fraunces', serif; font-weight: 500; }
+header.site-header {
+    position: fixed; top: 0; left: 0; width: 100%; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 22px 60px; background: rgba(13,13,13,0.55); backdrop-filter: blur(8px);
+}
+header.site-header .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+header.site-header .logo-badge { width: 62px; height: 64px; overflow: hidden; position: relative; background: transparent; flex-shrink: 0; }
+header.site-header .logo-img { position: absolute; width: 127px; height: 80px; left: -33.5px; top: -5.7px; max-width: none; }
+header.site-header .logo-text { font-family: 'Fraunces', serif; font-size: 21px; font-weight: 600; color: #fff; letter-spacing: 1px; }
+header.site-header nav a { color: #eee; margin-left: 30px; text-decoration: none; font-size: 15px; font-weight: 500; }
+header.site-header nav a.active { color: #d4af37; }
+    .menu-toggle { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 34px; height: 34px; background: transparent; border: none; cursor: pointer; padding: 0; z-index: 210; }
+    .menu-toggle span { display: block; width: 100%; height: 2px; background: #f5f5f5; border-radius: 2px; transition: transform 0.3s ease, opacity 0.3s ease; }
+    .menu-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .menu-toggle.open span:nth-child(2) { opacity: 0; }
+    .menu-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.eyebrow { display: flex; align-items: center; gap: 12px; font-size: 13px; letter-spacing: 3px; text-transform: uppercase; color: #d4af37; font-weight: 600; margin-bottom: 18px; }
+.eyebrow::before { content: ""; width: 30px; height: 1px; background: #d4af37; }
+section { padding: 100px 60px; }
+.section-inner { max-width: 1300px; margin: 0 auto; }
+.breadcrumb { padding: 150px 60px 0 60px; font-size: 13px; color: #888; }
+.breadcrumb a { color: #888; text-decoration: none; }
+.breadcrumb a:hover { color: #d4af37; }
+.breadcrumb span { color: #d4af37; }
+.project-title-block { padding: 30px 60px 50px 60px; }
+.project-title-block h1 { font-size: 42px; margin-bottom: 18px; }
+.back-link { display: inline-flex; align-items: center; gap: 8px; color: #d4af37; text-decoration: none; font-size: 14px; font-weight: 600; margin-bottom: 20px; }
+.back-link:hover { color: #fff; }
+.project-cover { width: 100%; height: 520px; overflow: hidden; padding: 0 60px; }
+.project-cover img { width: 100%; height: 100%; object-fit: cover; border-radius: 6px; }
+.project-cover.video-embed iframe { width: 100%; height: 100%; border-radius: 6px; }
+.project-gallery-section { background: #090909; }
+.gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.gallery-grid img { width: 100%; height: 280px; object-fit: cover; border-radius: 6px; transition: transform 0.4s ease; }
+.gallery-grid a { display: block; overflow: hidden; border-radius: 6px; }
+.gallery-grid a:hover img { transform: scale(1.06); }
+.contact-footer { padding: 100px 40px 40px 40px; background: #060606; border-top: 1px solid rgba(255,255,255,0.1); }
+.contact-wrapper { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+.contact-info h2 { font-size: 30px; margin-bottom: 20px; }
+.contact-info p { color: #aaa; margin-bottom: 30px; line-height: 1.6; }
+.info-item { display: flex; align-items: flex-start; gap: 15px; margin-bottom: 20px; }
+.info-item i { font-size: 20px; color: #d4af37; margin-top: 4px; }
+.info-item div h4 { font-size: 15px; color: #fff; margin-bottom: 4px; }
+.info-item div p, .info-item div a { font-size: 14px; color: #aaa; text-decoration: none; transition: color 0.3s; }
+.info-item div a:hover { color: #fff; }
+.map-container { width: 100%; height: 380px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); }
+.map-container iframe { width: 100%; height: 100%; border: none; }
+.footer-bottom { max-width: 1300px; margin: 60px auto 0 auto; padding-top: 25px; border-top: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center; color: #666; font-size: 13px; flex-wrap: wrap; gap: 10px; }
+.whatsapp-float { position: fixed; bottom: 20px; right: 20px; background: #25d366; color: #fff; width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 999; transition: transform 0.3s; }
+.whatsapp-float:hover { transform: scale(1.1); }
+@media (max-width: 968px) {
+    section { padding: 70px 20px; }
+    header.site-header { padding: 18px 24px; }
+    .breadcrumb { padding: 120px 20px 0 20px; }
+    .project-title-block { padding: 20px 20px 30px 20px; }
+    .project-title-block h1 { font-size: 30px; }
+    .project-cover { padding: 0 20px; height: 280px; }
+    .gallery-grid { grid-template-columns: 1fr; }
+    .contact-wrapper { grid-template-columns: 1fr; gap: 40px; }
+    .menu-toggle { display: flex; }
+    header.site-header nav { position: fixed; top: 0; right: -280px; width: 260px; height: 100vh; margin: 0; padding: 90px 30px; background: #0d0d0d; display: flex; flex-direction: column; align-items: flex-start; gap: 6px; transition: right 0.35s ease; box-shadow: -10px 0 30px rgba(0,0,0,0.5); z-index: 150; overflow-y: auto; }
+    header.site-header nav.open { right: 0; }
+    header.site-header nav a { margin-left: 0; width: 100%; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+}
+
+.project-meta-bar { display:flex; flex-wrap:wrap; gap:50px; padding:0 60px 45px 60px; }
+.project-meta-bar .meta-item { display:flex; flex-direction:column; gap:6px; }
+.project-meta-bar .meta-item .meta-label { font-size:12px; text-transform:uppercase; letter-spacing:1px; color:#888; }
+.project-meta-bar .meta-item .meta-value { font-size:16px; color:#f5f5f5; font-weight:600; }
+.project-description { padding:60px 60px 10px 60px; max-width:900px; }
+.project-description h2 { font-size:26px; margin-bottom:18px; }
+.project-description p { font-size:15px; line-height:1.8; color:#ccc; }
+.lightbox-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(5,5,5,0.95); z-index: 500; align-items: center; justify-content: center; }
+.lightbox-overlay.open { display: flex; }
+.lightbox-content { position: relative; max-width: 90%; max-height: 90%; display: flex; align-items: center; justify-content: center; }
+.lightbox-content img { max-width: 100%; max-height: 90vh; border-radius: 6px; box-shadow: 0 10px 40px rgba(0,0,0,0.6); user-select: none; cursor: grab; }
+.lightbox-close { position: absolute; top: 24px; right: 30px; width: 44px; height: 44px; background: rgba(255,255,255,0.08); border: none; border-radius: 50%; color: #f5f5f5; font-size: 22px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.25s; z-index: 510; }
+.lightbox-close:hover { background: #d4af37; color: #0d0d0d; }
+.lightbox-arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 50px; height: 50px; background: rgba(255,255,255,0.08); border: none; border-radius: 50%; color: #f5f5f5; font-size: 22px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.25s; z-index: 510; }
+.lightbox-arrow:hover { background: #d4af37; color: #0d0d0d; }
+.lightbox-arrow.prev { left: 20px; }
+.lightbox-arrow.next { right: 20px; }
+.lightbox-counter { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); color: #ccc; font-size: 13px; letter-spacing: 1px; }
+@media (max-width: 768px) { .lightbox-arrow { width: 40px; height: 40px; font-size: 18px; } .lightbox-close { width: 38px; height: 38px; top: 14px; right: 14px; } }
+</style>
+<style>
+.svc-body { padding:20px 60px 40px 60px; max-width:960px; }
+.svc-body h2 { font-size:28px; margin:50px 0 18px 0; }
+.svc-body p { font-size:16px; line-height:1.85; color:#ccc; margin-bottom:16px; }
+.svc-body ul, .svc-body ol { margin:0 0 16px 22px; color:#ccc; line-height:1.9; font-size:16px; }
+.svc-body li { margin-bottom:6px; }
+.svc-body li strong { color:#f5f5f5; }
+.svc-body a { color:#d4af37; }
+.faq-item { border-top:1px solid rgba(255,255,255,0.1); padding:22px 0; }
+.faq-item h3 { font-size:19px; margin-bottom:10px; }
+.cta-box { margin:60px 60px 0 60px; max-width:960px; padding:40px; background:#131313; border:1px solid rgba(212,175,55,0.35); border-radius:8px; }
+.cta-box h2 { font-size:26px; margin-bottom:12px; }
+.cta-box p { color:#bbb; margin-bottom:24px; line-height:1.7; }
+.cta-btns { display:flex; gap:14px; flex-wrap:wrap; }
+.cta-btns a { display:inline-flex; align-items:center; gap:10px; padding:14px 26px; border-radius:4px; font-weight:600; text-decoration:none; font-size:15px; }
+.cta-btns .wa { background:#25d366; color:#fff; }
+.cta-btns .tel { border:1px solid #d4af37; color:#d4af37; }
+.project-cover video { width:100%; height:100%; object-fit:cover; border-radius:6px; background:#000; }
+.svc-links a { color:#999; text-decoration:none; } .svc-links a:hover { color:#d4af37; }
+@media (max-width: 968px) { .svc-body { padding:10px 20px 30px 20px; } .cta-box { margin:40px 20px 0 20px; padding:26px; } }
+</style>
+
+    <meta name="description" content="Binanız kentsel dönüşüme mi girecek? Riskli yapı tespitinden salt çoğunluk kararına, müteahhit sözleşmesinden devlet desteklerine kadar 2026 güncel kentsel dönüşüm rehberi.">
+    <link rel="canonical" href="https://kcmimarlik.com/blog-kentsel-donusum-sureci-rehberi.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Kentsel Dönüşüm Süreci Nasıl İşler? Hak Sahipleri İçin Rehber (2026) | KC Mimarlık">
+    <meta property="og:description" content="Binanız kentsel dönüşüme mi girecek? Riskli yapı tespitinden salt çoğunluk kararına, müteahhit sözleşmesinden devlet desteklerine kadar 2026 güncel kentsel dönüşüm rehberi.">
+    <meta property="og:image" content="https://kcmimarlik.com/maltepe-esentepe-sokak-cephe.jpg">
+    <meta property="og:url" content="https://kcmimarlik.com/blog-kentsel-donusum-sureci-rehberi.html">
+    <meta property="og:locale" content="tr_TR">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Kentsel Dönüşüm Süreci Nasıl İşler? Hak Sahipleri İçin Rehber (2026) | KC Mimarlık">
+    <meta name="twitter:description" content="Binanız kentsel dönüşüme mi girecek? Riskli yapı tespitinden salt çoğunluk kararına, müteahhit sözleşmesinden devlet desteklerine kadar 2026 güncel kentsel dönüşüm rehberi.">
+    <meta name="twitter:image" content="https://kcmimarlik.com/maltepe-esentepe-sokak-cephe.jpg">
+<title>Kentsel Dönüşüm Süreci Nasıl İşler? Hak Sahipleri İçin Rehber (2026) | KC Mimarlık</title>
+
+<style>
+.article-meta { color:#888; font-size:14px; margin-top:6px; display:flex; gap:18px; flex-wrap:wrap; }
+.article-meta span i { color:#d4af37; margin-right:6px; }
+.svc-body .lead { font-size:18px; color:#e6e6e6; line-height:1.8; }
+.svc-body .note { font-size:14px; color:#999; border-left:2px solid #d4af37; padding:8px 14px; background:#121212; }
+.toc { background:#121212; border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:22px 26px; margin:30px 0; }
+.toc strong { display:block; color:#d4af37; font-size:13px; letter-spacing:2px; text-transform:uppercase; margin-bottom:10px; }
+.toc ol { margin:0 0 0 20px !important; }
+.toc a { color:#ddd !important; text-decoration:none; }
+.toc a:hover { color:#d4af37 !important; }
+.svc-body figure { margin:30px 0; }
+.svc-body figure img { width:100%; border-radius:6px; display:block; }
+.svc-body figcaption { font-size:13px; color:#888; margin-top:10px; }
+.svc-body h2 { scroll-margin-top:110px; }
+.related { margin:40px 60px 0 60px; max-width:960px; }
+.related h3 { font-size:20px; margin-bottom:16px; }
+.blog-list { display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:28px; padding:10px 60px 40px 60px; max-width:1300px; }
+.blog-card { display:block; background:#121212; border:1px solid rgba(255,255,255,0.07); border-radius:8px; overflow:hidden; text-decoration:none; color:#f5f5f5; transition:transform .3s, border-color .3s; }
+.blog-card:hover { transform:translateY(-4px); border-color:rgba(212,175,55,0.45); }
+.blog-card img { width:100%; height:220px; object-fit:cover; display:block; }
+.blog-card .bc-body { padding:22px; }
+.blog-card .bc-cat { font-size:12px; letter-spacing:2px; text-transform:uppercase; color:#d4af37; font-weight:600; }
+.blog-card h2 { font-size:21px; line-height:1.35; margin:10px 0 12px; }
+.blog-card p { color:#aaa; font-size:14.5px; line-height:1.7; }
+.blog-card .bc-meta { color:#777; font-size:13px; margin-top:14px; }
+.blog-intro { padding:0 60px 20px 60px; max-width:960px; color:#bbb; line-height:1.8; font-size:16px; }
+@media (max-width:968px){ .related{margin:30px 20px 0 20px;} .blog-list{padding:10px 20px 30px 20px;} .blog-intro{padding:0 20px 20px 20px;} }
+</style>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BlogPosting",
+ "headline": "Kentsel Dönüşüm Süreci: Hak Sahipleri İçin Adım Adım Rehber",
+ "description": "Binanız kentsel dönüşüme mi girecek? Riskli yapı tespitinden salt çoğunluk kararına, müteahhit sözleşmesinden devlet desteklerine kadar 2026 güncel kentsel dönüşüm rehberi.",
+ "image": "https://kcmimarlik.com/maltepe-esentepe-sokak-cephe.jpg",
+ "datePublished": "2026-11-26",
+ "dateModified": "2026-11-26",
+ "inLanguage": "tr-TR",
+ "mainEntityOfPage": "https://kcmimarlik.com/blog-kentsel-donusum-sureci-rehberi.html",
+ "author": {
+  "@type": "Organization",
+  "name": "KC Mimarlık",
+  "url": "https://kcmimarlik.com/"
+ },
+ "publisher": {
+  "@type": "Organization",
+  "name": "KC Mimarlık",
+  "logo": {
+   "@type": "ImageObject",
+   "url": "https://kcmimarlik.com/logo.png"
+  }
+ }
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "Kentsel dönüşüm kararı için kaç kişinin onayı gerekir?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Riskli yapı tespiti yapılan binalarda kararlar, hisseleri oranında maliklerin salt çoğunluğu (yarıdan fazlası) ile alınabiliyor."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Riskli yapı tespitini kim yaptırabilir?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Malikler veya kanuni temsilcileri, Bakanlıkça lisanslandırılmış kuruluşlara başvurarak tespit yaptırabilir."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Kentsel dönüşümde kira yardımı alabilir miyim?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Şartları sağlayan malik ve kiracılar, riskli yapının tahliyesi ve yıkımı sonrasında e-Devlet üzerinden kira veya taşınma yardımı için başvurabiliyor."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Yeni binada dairem eskisiyle aynı büyüklükte mi olur?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Bu; parselin güncel imar durumuna, otopark ve diğer yönetmelik şartlarına ve müteahhitle yapılan anlaşmaya bağlıdır."
+   }
+  }
+ ]
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Ana Sayfa",
+   "item": "https://kcmimarlik.com/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Blog",
+   "item": "https://kcmimarlik.com/blog.html"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "Kentsel Dönüşüm Süreci: Hak Sahipleri İçin Adım Adım Rehber",
+   "item": "https://kcmimarlik.com/blog-kentsel-donusum-sureci-rehberi.html"
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<header class="site-header">
+    <a href="index.html" class="logo"><span class="logo-badge"><img src="logo.png" alt="KC Mimarlık logo" class="logo-img"></span><span class="logo-text">KC MİMARLIK</span></a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Menü"><span></span><span></span><span></span></button>
+    <nav id="siteNav">
+        <a href="index.html">Ana Sayfa</a>
+        <a href="projeler.html">Projeler</a>
+        <a href="blog.html">Blog</a>
+        <a href="hakkimizda.html">Hakkımızda</a>
+        <a href="iletisim.html">İletişim</a>
+    </nav>
+</header>
+
+<div class="breadcrumb">
+    <a href="index.html">Ana Sayfa</a> / <a href="blog.html">Blog</a> / <span>Kentsel Dönüşüm</span>
+</div>
+
+<div class="project-title-block">
+    <div class="eyebrow">Kentsel Dönüşüm</div>
+    <h1>Kentsel Dönüşüm Süreci: Hak Sahipleri İçin Adım Adım Rehber</h1>
+    <div class="article-meta"><span><i class="fa-regular fa-calendar"></i>26 Kasım 2026</span><span><i class="fa-regular fa-clock"></i>10 dk okuma</span><span><i class="fa-solid fa-pen-nib"></i>KC Mimarlık</span></div>
+</div>
+
+<div class="project-cover"><img src="maltepe-esentepe-sokak-cephe.jpg" alt="KC Mimarlık konut projesi sokak cephesi"></div>
+
+<div class="svc-body" style="margin-top:30px">
+
+<p class="lead">Deprem gerçeği nedeniyle İstanbul başta olmak üzere birçok şehirde eski binalar yenileniyor. Ancak kentsel dönüşüm; hukuki, teknik ve mali kararların iç içe geçtiği uzun bir süreç. Bu rehberde, binası dönüşüme girecek bir hak sahibinin bilmesi gereken adımları ve dikkat etmesi gereken noktaları özetliyoruz.</p>
+<p class="note">Bu yazı genel bilgilendirme amaçlıdır; mevzuat ve destek tutarları değişebilir. Kendi durumunuza özel kararlar için güncel mevzuatı ve gerektiğinde bir hukukçuyu dikkate alın.</p>
+
+<nav class="toc"><strong>Bu yazıda</strong>
+<ol>
+<li><a href="#tespit">Riskli yapı tespiti</a></li>
+<li><a href="#karar">Kat malikleriyle karar alma</a></li>
+<li><a href="#proje">Yeni binanın projesi ve hak paylaşımı</a></li>
+<li><a href="#muteahhit">Müteahhit seçimi ve sözleşme</a></li>
+<li><a href="#destek">Devlet destekleri ve muafiyetler</a></li>
+<li><a href="#yikim">Tahliye, yıkım ve inşaat</a></li>
+<li><a href="#mimar">Mimarın bu süreçteki rolü</a></li>
+</ol></nav>
+
+<h2 id="tespit">1. Riskli yapı tespiti</h2>
+<p>Kentsel dönüşüm, 6306 sayılı Afet Riski Altındaki Alanların Dönüştürülmesi Hakkında Kanun kapsamında yürür. Süreç genellikle binanın <strong>riskli yapı</strong> olarak tespit edilmesiyle başlar. Tespit, Bakanlıkça lisanslandırılmış kuruluşlar tarafından yapılır; binadan karot (beton numunesi) alınır, taşıyıcı sistem incelenir ve rapor hazırlanır.</p>
+<p>Rapor kesinleştikten sonra tapuya riskli yapı şerhi işlenir. 4 Şubat 2026'da yürürlüğe giren yönetmelik değişikliğiyle, riskli yapı yıkıldıktan sonra bu şerhin kaldırılması, bunun yerine tapuda taşınmazın 6306 sayılı Kanun kapsamında olduğuna dair bir belirtme yapılması öngörüldü. Böylece yıkım sonrasındaki işlemler de Kanun kapsamında yürümeye devam ediyor.</p>
+
+<h2 id="karar">2. Kat malikleriyle karar alma</h2>
+<p>Kentsel dönüşümün en zor aşaması genellikle komşularla uzlaşmaktır. Güncel mevzuata göre, riskli yapı tespiti yapılan binalarda yeniden yapım, pay satışı, kat karşılığı veya hasılat paylaşımı gibi kararlar, <strong>hisseleri oranında maliklerin salt çoğunluğu</strong> ile alınabiliyor. Eskiden aranan üçte iki çoğunluk şartı, 2023'teki kanun değişikliğiyle salt çoğunluğa indirildi; 2026 yönetmelik değişikliği de toplantı çağrısı, ilan ve karar süreçlerini netleştirdi.</p>
+<p>Karara katılmayan maliklerin payları, kanunda belirtilen usulle önce diğer maliklere, ardından gerektiğinde ilgili kamu kurumlarına satılabiliyor. Bu nedenle toplantı tutanaklarının ve bildirimlerin usulüne uygun yapılması çok önemlidir.</p>
+<ul>
+<li>Toplantı tarihini, gündemi ve alternatifleri önceden tüm maliklere yazılı olarak duyurun.</li>
+<li>Kararları tutanağa bağlayın ve imzalatın.</li>
+<li>Bina yönetimi ya da maliklerden oluşan küçük bir temsilci grubu belirlemek, müteahhit ve mimarla iletişimi kolaylaştırır.</li>
+</ul>
+
+<h2 id="proje">3. Yeni binanın projesi ve hak paylaşımı</h2>
+<p>Müteahhitle sözleşme imzalamadan önce <strong>yeni binanın neye benzeyeceğini ve size ne düşeceğini</strong> bilmeniz gerekir. Bunun için önce parselin güncel imar durumu incelenir: Yeni yönetmelikler, otopark zorunluluğu, çekme mesafeleri ve sığınak gibi şartlar nedeniyle yeni binanın inşaat alanı, eski binadan farklı olabilir.</p>
+<figure><img src="maltepe-esentepe-kat-plani-1.jpg" alt="Konut projesi kat planı" loading="lazy"><figcaption>Hak sahiplerine sunulan kat planları, kimin hangi daireyi alacağını netleştirir.</figcaption></figure>
+<p>Bu aşamada bir mimarın hazırlayacağı fizibilite çalışması şunları netleştirir:</p>
+<ul>
+<li>Parselde yapılabilecek toplam inşaat alanı ve kat adedi</li>
+<li>Eski daire sayısı ve büyüklüklerine göre yeni daire dağılımı</li>
+<li>Müteahhide kalacak bağımsız bölümler ve ticari alanlar</li>
+<li>Otopark, sığınak, ortak alanlar ve sosyal donatılar</li>
+<li>Komşu parsellerle birleşme (tevhid) yapılırsa elde edilebilecek ek imkânlar</li>
+</ul>
+<p>Plan alternatiflerini 3D görsellerle hak sahiplerine sunmak, “benim dairem nerede, ne kadar büyük, hangi cepheye bakıyor?” sorularını baştan cevaplar ve uzlaşmayı kolaylaştırır.</p>
+
+<h2 id="muteahhit">4. Müteahhit seçimi ve sözleşme</h2>
+<p>Dönüşüm genellikle <strong>kat karşılığı</strong> ya da <strong>arsa payı karşılığı inşaat</strong> modeliyle yapılır. Müteahhit seçerken yalnızca verilen teklife değil, firmanın geçmiş işlerine, mali gücüne ve teslim ettiği binaların kalitesine bakın. Sözleşmede mutlaka şu konular yer almalı:</p>
+<ul>
+<li>Her malike düşecek bağımsız bölümün kat, cephe ve metrekare olarak açık tanımı</li>
+<li>Onaylı proje ve teknik şartname (kullanılacak malzemelerin markası ve standardı)</li>
+<li>İnşaata başlama ve teslim tarihleri, gecikme halinde uygulanacak cezalar</li>
+<li>Kira yardımı ve taşınma masraflarının kim tarafından karşılanacağı</li>
+<li>Teminatlar ve tapu devirlerinin hangi aşamalara bağlanacağı</li>
+<li>Noter onayı</li>
+</ul>
+<p>Projenin müteahhit tarafından tek başına değil, maliklerin onayıyla şekillenmesi; ileride “bize söylenen bu değildi” anlaşmazlıklarının önüne geçer.</p>
+
+<h2 id="destek">5. Devlet destekleri ve muafiyetler</h2>
+<p>Kentsel dönüşümde hak sahiplerine çeşitli destekler sunuluyor. Bunların her birinin şartı, tutarı ve başvuru süresi farklıdır ve zaman zaman güncellenir:</p>
+<ul>
+<li><strong>Kira yardımı:</strong> Riskli yapı tahliye edilip yıkıldıktan sonra malik ve kiracılara, ilgili ile göre belirlenen tutarlarda kira veya taşınma yardımı yapılabiliyor. Başvuru e-Devlet üzerinden yapılıyor; güncel tutarı başvuru sırasında teyit etmek gerekiyor.</li>
+<li><strong>Hibe ve kredi destekleri:</strong> Yeniden yapım için faiz destekli krediler ve bazı programlarda hibe imkânları bulunuyor. İstanbul'daki uygulamalarda hibe taahhütnamesi ve kredi sözleşmesi için 31 Aralık 2026 süre sınırının yalnızca 6306 sayılı Kanun kapsamında onaylanan riskli yapılar için geçerli olduğu belirtiliyor.</li>
+<li><strong>Harç ve vergi muafiyetleri:</strong> Kanun kapsamındaki işlemlerde tapu harcı, noter harcı, damga vergisi ve belediye harçlarında çeşitli muafiyet ve indirimler uygulanıyor.</li>
+</ul>
+
+<h2 id="yikim">6. Tahliye, yıkım ve inşaat</h2>
+<p>Riskli yapı kesinleştikten sonra idare, maliklere binayı tahliye ve yıkım için süre verir. Süresinde yıkılmayan yapılar idare tarafından yıktırılabilir. Yıkım sonrası yapı ruhsatı alınır ve inşaat başlar. İnşaat süresince yapı denetim kuruluşu yapıyı denetler; hak sahiplerinin de belirli aralıklarla şantiyeyi görmesi ve sözleşmedeki malzeme şartlarına uyulduğunu takip etmesi önerilir.</p>
+
+<h2 id="mimar">7. Mimarın bu süreçteki rolü</h2>
+<p>Kentsel dönüşümde mimar yalnızca ruhsat projesini çizen kişi değildir. Doğru bir süreçte mimar:</p>
+<ul>
+<li>Parselin imar ve yapılaşma hakkını analiz eder,</li>
+<li>Hak sahiplerine plan alternatifleri ve daire dağılımı önerir,</li>
+<li>Projeyi 3D olarak görselleştirerek ortak karar almayı kolaylaştırır,</li>
+<li>Müteahhit tekliflerinin aynı proje üzerinden karşılaştırılmasını sağlar,</li>
+<li>Ruhsat sürecini ve projeler arası koordinasyonu yürütür.</li>
+</ul>
+<p>Malikler, müteahhit seçmeden önce kendi adına bir fizibilite ve plan çalışması yaptırdığında, pazarlık masasına çok daha güçlü oturur.</p>
+
+<h2>Sık Sorulan Sorular</h2>
+<div class="faq-item"><h3>Kentsel dönüşüm kararı için kaç kişinin onayı gerekir?</h3><p>Riskli yapı tespiti yapılan binalarda kararlar, hisseleri oranında maliklerin salt çoğunluğu (yarıdan fazlası) ile alınabiliyor.</p></div>
+<div class="faq-item"><h3>Riskli yapı tespitini kim yaptırabilir?</h3><p>Malikler veya kanuni temsilcileri, Bakanlıkça lisanslandırılmış kuruluşlara başvurarak tespit yaptırabilir. İdare de gerekli gördüğü yapılarda tespit yaptırabilir.</p></div>
+<div class="faq-item"><h3>Kentsel dönüşümde kira yardımı alabilir miyim?</h3><p>Şartları sağlayan malik ve kiracılar, riskli yapının tahliyesi ve yıkımı sonrasında e-Devlet üzerinden kira veya taşınma yardımı için başvurabiliyor. Tutarlar ile göre belirleniyor ve güncellenebiliyor.</p></div>
+<div class="faq-item"><h3>Yeni binada dairem eskisiyle aynı büyüklükte mi olur?</h3><p>Bu; parselin güncel imar durumuna, otopark ve diğer yönetmelik şartlarına ve müteahhitle yapılan anlaşmaya bağlıdır. Sözleşmeden önce yaptırılacak bir fizibilite çalışması, size ne düşeceğini netleştirir.</p></div>
+
+<p style="margin-top:30px">Bu konuda profesyonel destek almak isterseniz <a href="kentsel-donusum-projesi.html">Kentsel Dönüşüm Projesi hizmetimiz</a> sayfasını inceleyebilirsiniz.</p>
+</div>
+<div class="cta-box">
+  <h2>Projenizi konuşalım</h2>
+  <p>Arsanızı, binanızı ya da hayalinizdeki mekânı anlatın; size nasıl bir yol izleyebileceğimizi birlikte konuşalım.</p>
+  <div class="cta-btns">
+    <a class="wa" href="https://wa.me/905325861108" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp'tan yazın</a>
+    <a class="tel" href="tel:05325861108"><i class="fa-solid fa-phone"></i> 0532 586 11 08</a>
+  </div>
+</div>
+<div class="related"><h3>Diğer yazılar</h3><ul style="color:#ccc;line-height:2;margin-left:20px"><li><a href="blog-villa-mustakil-ev-yaptirma-sureci.html">Villa veya Müstakil Ev Yaptırma Süreci: Arsadan Anahtara Adım Adım</a></li><li><a href="blog-yapi-ruhsati-gerekli-belgeler.html">Yapı Ruhsatı Nasıl Alınır? Gerekli Belgeler ve Süreç</a></li><li><a href="blog-imar-durumu-nasil-ogrenilir.html">İmar Durumu Nasıl Öğrenilir ve Nasıl Okunur?</a></li></ul></div>
+
+<div style="height:80px"></div>
+<section class="contact-footer" id="iletisim">
+    <div class="contact-wrapper">
+        <div class="contact-info">
+            <h2>İletişim Bilgileri</h2>
+            <p>Projeleriniz hakkında görüşmek, sorularınızı iletmek veya ofisimizi ziyaret etmek için aşağıdaki kanallardan bize ulaşabilirsiniz.</p>
+            <div class="info-item"><i class="fa-solid fa-location-dot"></i><div><h4>Ofis Adresi</h4><p>Merkez mah. Ferah sk. No:7 D:5, Çekmeköy / İstanbul</p></div></div>
+            <div class="info-item"><i class="fa-solid fa-phone"></i><div><h4>Telefon</h4><p><a href="tel:05325861108">0532 586 11 08</a></p></div></div>
+            <div class="info-item"><i class="fa-solid fa-envelope"></i><div><h4>E-Posta</h4><p><a href="mailto:kadir@kcmimarlik.com">kadir@kcmimarlik.com</a></p></div></div>
+            <div class="info-item"><i class="fa-brands fa-whatsapp"></i><div><h4>WhatsApp Destek</h4><p><a href="https://wa.me/905325861108" target="_blank" rel="noopener">0532 586 11 08 üzerinden yazın</a></p></div></div>
+        </div>
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps?q=Cekmekoy%20KC%20Mimarlik%2C%20Merkez%20Mah.%20Ferah%20Sk.%20No%3A7%20D%3A5%20Cekmekoy%20Istanbul&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 KC Mimarlık. Tüm hakları saklıdır.</p>
+        <p class="svc-links" style="display:flex;gap:16px;flex-wrap:wrap;"><a href="villa-projesi.html" style="color:#999;text-decoration:none;">Villa Projesi</a><a href="kentsel-donusum-projesi.html" style="color:#999;text-decoration:none;">Kentsel Dönüşüm</a><a href="ruhsat-projesi.html" style="color:#999;text-decoration:none;">Ruhsat Projesi</a></p>
+    </div>
+</section>
+
+<a href="https://wa.me/905325861108" target="_blank" rel="noopener" class="whatsapp-float"><i class="fa-brands fa-whatsapp"></i></a>
+    <script>var menuToggle = document.getElementById('menuToggle');
+        var siteNav = document.getElementById('siteNav');
+        if (menuToggle && siteNav) {
+            menuToggle.addEventListener('click', function () {
+                menuToggle.classList.toggle('open');
+                siteNav.classList.toggle('open');
+            });
+            siteNav.querySelectorAll('a').forEach(function (link) {
+                link.addEventListener('click', function () {
+                    menuToggle.classList.remove('open');
+                    siteNav.classList.remove('open');
+                });
+            });
+        }</script>
+</body>
+</html>
